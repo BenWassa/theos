@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-24T00:00:00.000Z",
+  "title": "Design System: Project Theos",
+  "extensions": {
+    "colorMeta": {
+      "stone-bg": { "role": "neutral", "displayName": "Stone Charcoal", "canonical": "oklch(15% 0.005 60)" },
+      "stone-surface": { "role": "neutral", "displayName": "Stone Ash", "canonical": "oklch(22% 0.006 60)" },
+      "stone-text": { "role": "neutral", "displayName": "Stone Parchment", "canonical": "oklch(92% 0.004 70)" },
+      "stone-muted": { "role": "neutral", "displayName": "Stone Dust", "canonical": "oklch(70% 0.006 60)" },
+      "stone-accent": { "role": "primary", "displayName": "Warm Gold", "canonical": "oklch(75% 0.1 75)", "tonalRamp": ["#241a08", "#3d2c0f", "#5a4118", "#7c5a22", "#a1782f", "#c4964a", "#d6b06b", "#ecd7a8"] },
+      "stone-border": { "role": "neutral", "displayName": "Stone Shadow", "canonical": "oklch(30% 0.005 60)" },
+      "christianity-bg": { "role": "neutral", "displayName": "Charcoal Stone", "canonical": "oklch(15% 0.005 60)" },
+      "christianity-surface": { "role": "neutral", "displayName": "Charcoal Stone Ash", "canonical": "oklch(22% 0.006 60)" },
+      "christianity-text": { "role": "neutral", "displayName": "Charcoal Parchment", "canonical": "oklch(92% 0.004 70)" },
+      "christianity-muted": { "role": "neutral", "displayName": "Charcoal Dust", "canonical": "oklch(70% 0.006 60)" },
+      "christianity-accent": { "role": "primary", "displayName": "Amber Ember", "canonical": "oklch(77% 0.16 70)", "tonalRamp": ["#2b1704", "#47250a", "#6b3810", "#8f4d14", "#b6641a", "#d98420", "#f59e0b", "#fbc86b"] },
+      "christianity-border": { "role": "neutral", "displayName": "Umber Border", "canonical": "oklch(35% 0.09 45)" },
+      "islam-bg": { "role": "neutral", "displayName": "Deep Emerald Night", "canonical": "oklch(13% 0.02 165)" },
+      "islam-surface": { "role": "neutral", "displayName": "Emerald Night Ash", "canonical": "oklch(32% 0.06 165)" },
+      "islam-text": { "role": "neutral", "displayName": "Emerald Mist", "canonical": "oklch(97% 0.01 165)" },
+      "islam-muted": { "role": "neutral", "displayName": "Emerald Dust", "canonical": "oklch(70% 0.03 165)" },
+      "islam-accent": { "role": "primary", "displayName": "Emerald Ember", "canonical": "oklch(76% 0.15 160)", "tonalRamp": ["#04150f", "#08281d", "#0e3f2c", "#15583c", "#1c744e", "#279661", "#34d399", "#8ff0c4"] },
+      "islam-border": { "role": "neutral", "displayName": "Emerald Border", "canonical": "oklch(35% 0.07 165)" },
+      "hinduism-bg": { "role": "neutral", "displayName": "Ember Rust Dark", "canonical": "oklch(14% 0.02 40)" },
+      "hinduism-surface": { "role": "neutral", "displayName": "Ember Rust Ash", "canonical": "oklch(28% 0.08 35)" },
+      "hinduism-text": { "role": "neutral", "displayName": "Ember Marigold White", "canonical": "oklch(97% 0.015 60)" },
+      "hinduism-muted": { "role": "neutral", "displayName": "Ember Dust", "canonical": "oklch(72% 0.04 45)" },
+      "hinduism-accent": { "role": "primary", "displayName": "Orange Ember", "canonical": "oklch(75% 0.17 50)", "tonalRamp": ["#2c0f04", "#481909", "#6c260d", "#903511", "#b84616", "#df5c1c", "#fb923c", "#fdc294"] },
+      "hinduism-border": { "role": "neutral", "displayName": "Rust Border", "canonical": "oklch(38% 0.1 35)" },
+      "status-reviewed": { "role": "tertiary", "displayName": "Reviewed Green", "canonical": "oklch(76% 0.15 160)", "tonalRamp": ["#04150f", "#08281d", "#0e3f2c", "#15583c", "#1c744e", "#279661", "#34d399", "#8ff0c4"] },
+      "status-reviewed-text": { "role": "tertiary", "displayName": "Reviewed Green (text)", "canonical": "oklch(85% 0.12 160)" },
+      "status-warn": { "role": "tertiary", "displayName": "Needs-Review Amber", "canonical": "oklch(78% 0.15 85)", "tonalRamp": ["#2b1d02", "#453006", "#68480a", "#8c630e", "#b18013", "#d59f19", "#eab308", "#f7d666"] },
+      "status-warn-text": { "role": "tertiary", "displayName": "Needs-Review Amber (text)", "canonical": "oklch(86% 0.13 95)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero tradition-name title only, one per page." },
+      "headline": { "displayName": "Headline", "purpose": "Landing page 'Project Theos' title." },
+      "title": { "displayName": "Title", "purpose": "Tradition names on index cards." },
+      "body-editorial": { "displayName": "Body — Editorial", "purpose": "Third-person factual sections: Origins, Beliefs, Practice, Symbols." },
+      "body-immersive": { "displayName": "Body — Immersive", "purpose": "Second-person narrative: A Day / A Life." },
+      "quote": { "displayName": "Quote", "purpose": "First-person excerpts: Sacred Text, Tensions & Questions." },
+      "label": { "displayName": "Label", "purpose": "Kickers, section labels, nav chrome, source-type tags. Always set in the tradition's accent color." }
+    },
+    "shadows": [
+      { "name": "hero-title-glow", "value": "0 30px 60px rgba(0,0,0,0.6)", "purpose": "Keeps the giant serif Display title legible over the generative backdrop; a legibility aid, not an elevation cue." },
+      { "name": "immersive-panel-lift", "value": "0 40px 80px -40px rgba(0,0,0,0.8)", "purpose": "The system's one true elevation shadow, reserved for the ImmersiveModule glass panel." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "The single easing curve used everywhere: reveal-on-scroll, card hover, nav opacity, scroll cue. Never mix in a different curve." }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Tradition Card",
+      "kind": "card",
+      "refersTo": "tradition-card",
+      "description": "Index-grid entry point into a tradition: gradient backdrop, symbol watermark, name, and an 'Enter →' affordance that only appears on hover/focus.",
+      "html": "<a class=\"ds-card\" href=\"/christianity\" aria-label=\"Enter Christianity\"><div class=\"ds-card-backdrop\"></div><svg class=\"ds-card-glyph\" viewBox=\"0 0 384 512\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M160 32c0-17.7 14.3-32 32-32s32 14.3 32 32v96h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H224v288c0 17.7-14.3 32-32 32s-32-14.3-32-32V192H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h96V32z\"/></svg><div class=\"ds-card-inner\"><span class=\"ds-kicker\">Tradition</span><h2 class=\"ds-card-name\">Christianity</h2><span class=\"ds-card-enter\">Enter →</span></div></a>",
+      "css": ".ds-card { position: relative; display: block; height: 20rem; border: 1px solid color-mix(in srgb, var(--text) 15%, transparent); border-radius: 4px; overflow: hidden; isolation: isolate; background: var(--surface); transition: transform 0.5s var(--ease), border-color 0.5s var(--ease); } .ds-card-backdrop { position: absolute; inset: 0; z-index: 0; opacity: 0.55; background: radial-gradient(120% 90% at 50% -10%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%), linear-gradient(180deg, var(--gradient-from), var(--gradient-via) 45%, var(--gradient-to)); transition: opacity 0.6s var(--ease); } .ds-card-glyph { position: absolute; z-index: 1; right: -1.75rem; bottom: -2.25rem; width: 13rem; height: 13rem; color: var(--accent); opacity: 0.13; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); pointer-events: none; } .ds-card-inner { position: relative; z-index: 2; height: 100%; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; color: var(--text); } .ds-kicker { font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.72rem; font-weight: 500; color: var(--accent); } .ds-card-name { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.02em; font-size: clamp(2rem, 5vw, 2.75rem); margin-top: 0.75rem; } .ds-card-enter { font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); opacity: 0; transform: translateX(-6px); transition: opacity 0.4s var(--ease), transform 0.4s var(--ease); } .ds-card:hover, .ds-card:focus-visible { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 60%, transparent); } .ds-card:hover .ds-card-backdrop, .ds-card:focus-visible .ds-card-backdrop { opacity: 0.85; } .ds-card:hover .ds-card-glyph, .ds-card:focus-visible .ds-card-glyph { opacity: 0.22; transform: scale(1.05) rotate(-3deg); } .ds-card:hover .ds-card-enter, .ds-card:focus-visible .ds-card-enter { opacity: 1; transform: none; }"
+    },
+    {
+      "name": "Hero Disclaimer Panel",
+      "kind": "custom",
+      "refersTo": "hero-disclaimer",
+      "description": "Glass panel beneath the hero title carrying the tradition's editorial disclaimer. Always visible, never collapsible.",
+      "html": "<div class=\"ds-disclaimer\"><span class=\"ds-label\">Editorial note</span><p>This experience presents selected voices and practices within a diverse global tradition.</p></div>",
+      "css": ".ds-disclaimer { max-width: 34rem; margin: 0 auto; background: color-mix(in srgb, #000 45%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid color-mix(in srgb, var(--text) 14%, transparent); border-radius: 4px; padding: 1.25rem 1.5rem; } .ds-label { display: block; margin-bottom: 0.5rem; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.72rem; font-weight: 500; color: var(--accent); } .ds-disclaimer p { font-family: var(--font-sans); font-weight: 300; font-size: 0.9rem; line-height: 1.55; color: var(--text); }"
+    },
+    {
+      "name": "Immersive Quote Blockquote",
+      "kind": "custom",
+      "refersTo": "quote-blockquote",
+      "description": "First-person excerpt styling for Sacred Text and Tensions & Questions sections: italic serif with a single accent-tinted left rule.",
+      "html": "<blockquote class=\"ds-quote\"><p class=\"ds-quote-prose\">Whoever finds their life will lose it, and whoever loses their life for my sake will find it.</p><footer><cite class=\"ds-quote-cite\">— Matthew 10:39</cite></footer></blockquote>",
+      "css": ".ds-quote { border-left: 3px solid color-mix(in srgb, var(--accent) 60%, transparent); padding-left: clamp(1.25rem, 4vw, 2.5rem); } .ds-quote-prose { font-family: var(--font-serif); font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.3rem); line-height: 1.4; font-style: italic; font-weight: 400; letter-spacing: -0.015em; margin-bottom: 1.2rem; } .ds-quote-cite { font-family: var(--font-sans); font-style: normal; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--muted); }"
+    },
+    {
+      "name": "Section Meta (Sources & Status)",
+      "kind": "custom",
+      "refersTo": "section-meta",
+      "description": "Footer on every section: source citations as outlined pill tags, followed by a colored-dot review-status line. The honesty layer of the design system.",
+      "html": "<footer class=\"ds-meta\"><ul class=\"ds-sources\"><li><span class=\"ds-src-type\">primary text</span><a href=\"#\">Matthew 10:39, NRSV</a></li></ul><p class=\"ds-status ds-status-warn\"><span class=\"ds-dot\"></span><span>needs practitioner review</span></p></footer>",
+      "css": ".ds-meta { margin-top: 2.5rem; padding-top: 1.4rem; border-top: 1px solid color-mix(in srgb, var(--text) 14%, transparent); font-family: var(--font-sans); } .ds-sources { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.78rem; color: var(--muted); } .ds-src-type { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); border-radius: 3px; padding: 0.1rem 0.4rem; margin-right: 0.6rem; } .ds-sources a { text-decoration: underline; text-underline-offset: 2px; color: var(--text); } .ds-status { display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; } .ds-dot { width: 7px; height: 7px; border-radius: 50%; } .ds-status-warn .ds-dot { background: #eab308; } .ds-status-warn { color: #fde047; } .ds-status-ok .ds-dot { background: #34d399; } .ds-status-ok { color: #6ee7b7; }"
+    },
+    {
+      "name": "Sound Toggle",
+      "kind": "custom",
+      "refersTo": "sound-toggle",
+      "description": "Floating pill control for opt-in ambient audio. Off by default, animates only while active, renders nothing when a tradition has no ambient track.",
+      "html": "<button type=\"button\" class=\"ds-sound\" aria-pressed=\"true\"><span class=\"ds-sound-icon\"><span></span><span></span><span></span></span><span>Ambient</span></button>",
+      "css": ".ds-sound { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.55rem 0.85rem; background: color-mix(in srgb, #000 55%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid color-mix(in srgb, var(--text) 20%, transparent); border-radius: 999px; font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); } .ds-sound-icon { display: inline-flex; align-items: flex-end; gap: 2px; height: 12px; } .ds-sound-icon span { width: 2px; height: 4px; background: var(--accent); border-radius: 1px; } .ds-sound[aria-pressed='true'] .ds-sound-icon span { animation: ds-eq 0.9s ease-in-out infinite; } .ds-sound-icon span:nth-child(2) { animation-delay: 0.15s; } .ds-sound-icon span:nth-child(3) { animation-delay: 0.3s; } @keyframes ds-eq { 0%, 100% { height: 4px; } 50% { height: 12px; } }"
+    },
+    {
+      "name": "Governance Status Badge",
+      "kind": "chip",
+      "refersTo": "status-badge-reviewed",
+      "description": "Outline-only pill badge on the internal /governance dashboard, one of three states (reviewed / needs-practitioner-review / draft). The one deliberately dashboard-like component in the system.",
+      "html": "<span class=\"ds-badge ds-badge-reviewed\">reviewed</span> <span class=\"ds-badge ds-badge-warn\">needs practitioner review</span> <span class=\"ds-badge ds-badge-draft\">draft</span>",
+      "css": ".ds-badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid; font-family: var(--font-sans); } .ds-badge-reviewed { color: #6ee7b7; border-color: color-mix(in srgb, #34d399 45%, transparent); } .ds-badge-warn { color: #fde047; border-color: color-mix(in srgb, #eab308 45%, transparent); } .ds-badge-draft { color: var(--muted); border-color: color-mix(in srgb, var(--muted) 40%, transparent); }"
+    },
+    {
+      "name": "Skip Link",
+      "kind": "custom",
+      "refersTo": "skip-link",
+      "description": "Accessibility skip-to-content link, hidden until keyboard-focused. Only visible pill-shaped chrome besides Sound Toggle.",
+      "html": "<a class=\"ds-skip\" href=\"#main\">Skip to content</a>",
+      "css": ".ds-skip { position: absolute; left: 50%; top: -4rem; transform: translateX(-50%); background: var(--surface); color: var(--text); padding: 0.6rem 1.1rem; font-family: var(--font-sans); font-size: 0.85rem; border: 1px solid var(--border); border-radius: 4px; z-index: 100; transition: top 0.2s var(--ease); } .ds-skip:focus { top: 1rem; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Ember Room",
+    "overview": "Every tradition page is the same dark room with a different single coal glowing in it. The nine palette tokens in each meta.json (bg, surface, text, muted, accent, border, and the three gradient stops) are the entire mechanism by which Christianity, Islam, and Hinduism feel distinct — everything else (layout, components, motion, type) is one shared grammar. Christianity glows amber, Islam glows emerald, Hinduism glows orange-ember; the room itself — near-black, grain-textured, generatively lit from below — never changes shape. This is the direct visual expression of PRODUCT.md's 'one template, honestly adapted' principle: uniformity is the scaling mechanism, color is the only thing that's allowed to vary. The system explicitly rejects photography, 3D/WebGL spectacle, and decorative gradients-as-content — atmosphere is generated entirely from CSS (radial + linear gradients, SVG turbulence grain, a single symbol watermark), never from stock imagery, in keeping with PRODUCT.md's anti-reference list. It also rejects anything that reads as brochure-confident: sourcing and review status are surfaced in the same visual language as the content itself (SectionMeta, /governance), not hidden in an admin panel, because honesty about what isn't yet verified is part of the brand, not an implementation detail.",
+    "keyCharacteristics": [
+      "One component set, nine swappable CSS custom properties per tradition — no bespoke per-tradition CSS",
+      "Near-black, hue-tinted backgrounds (never true #000) with a single accent ember per tradition",
+      "Serif for reading and reverence, sans for labels, chrome, and the second-person immersive voice",
+      "Flat by default; glass/blur panels reserved for the two 'you are inside the room' moments",
+      "Motion is subtle, state-driven, and fully optional — every effect degrades cleanly under prefers-reduced-motion"
+    ],
+    "rules": [
+      { "name": "The One Ember Rule", "body": "Each tradition gets exactly one accent color. It never gets a second highlight, a gradient duo, or a complementary pop color — the entire sense of 'this tradition feels different' rests on one hue doing all the work, at low-opacity/high-opacity contrast rather than on adding more colors.", "section": "colors" },
+      { "name": "The Tinted-Neutral Rule", "body": "No background, surface, or border is ever plain gray or true black. Every neutral carries its tradition's hue even in shadow.", "section": "colors" },
+      { "name": "The Voice-Is-Typeface Rule", "body": "Third-person sections are always set in serif body; second-person narrative is always sans, lighter weight, larger scale. Never mix — the typeface change is how a reader unconsciously registers 'the voice just shifted.'", "section": "typography" },
+      { "name": "The Two-Glass Rule", "body": "backdrop-filter: blur() is reserved for exactly two UI moments — the Hero's disclaimer box and the ImmersiveModule narrative panel — plus the floating Sound Toggle. Everywhere else the system is flat.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every tradition on the exact same six components (Hero, TraditionCard, EditorialModule, ImmersiveModule, QuoteModule, SectionMeta) — a new tradition changes only the nine tokens in its meta.json → palette, never a component.",
+      "Do tint every neutral toward its tradition's hue, even at near-black or near-white extremes. Never #000 or #fff, never plain gray.",
+      "Do keep the accent to one color per tradition, used sparingly (labels, links, glyph watermark, hover/focus) — its rarity is what makes it read as an ember rather than a color scheme.",
+      "Do match typeface to voice: serif for third/first-person reading, sans for second-person immersive narrative and all UI chrome/labels.",
+      "Do give every motion effect (reveal, parallax, equalizer, scroll cue) a prefers-reduced-motion fallback that keeps content fully legible with zero animation.",
+      "Do keep the SectionMeta review-status indicator honest — the actual review_status value, unstyled toward 'more finished' than it is."
+    ],
+    "donts": [
+      "Don't add stock or licensed photography anywhere. Atmosphere is generated (gradients, grain, one symbol emblem) — never photographic.",
+      "Don't add streaks, XP, progress bars, badges-as-achievement, or any gamified completion UI to a tradition page.",
+      "Don't add sign-up CTAs, 'join now' buttons, or any persuasive/conversion-styled component — no tradition is being sold.",
+      "Don't give a tradition page an encyclopedia/infobox layout (comparison tables, spec-sheet sidebars). The /governance data table is the one sanctioned exception.",
+      "Don't add 3D/WebGL, canvas scenes, or any animation whose purpose is to impress rather than support reading.",
+      "Don't use backdrop-filter blur decoratively outside the two sanctioned glass moments plus the floating Sound Toggle.",
+      "Don't add a second display typeface or a licensed web font — the system is system-stack-only by design.",
+      "Don't add new colored left-border 'stripe' accents. LensLabel and the QuoteModule blockquote are the system's only two, and they're load-bearing content markers, not a decorative pattern to extend.",
+      "Don't use gradient text or background-clip: text treatments anywhere in the system.",
+      "Don't style Islam's emerald tradition accent as if it were the fixed 'reviewed' status color, or vice versa — the overlap in hue is coincidental, not semantic."
+    ]
+  }
+}
