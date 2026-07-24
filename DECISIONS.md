@@ -118,6 +118,14 @@ but is excluded from type-checking and the build. Delete it whenever you like.
 
 2. **Visual direction.** Keep the generative atmospheres, or commission/lice­nse
    real photography per tradition? The template supports either with no code change.
+   - **Partially exercised (2026-07-24).** Rather than reverse the no-photography
+     rule sitewide, a **bounded exception** is being scoped: nine commissioned
+     educational infographics (three per tradition), each anchored by a *single*
+     real photograph treated (duotone/grain) into its tradition's palette. The
+     generative ember-room atmosphere is unchanged everywhere else. Commission
+     briefs + a photo-sourcing tool live in `docs/infographics/`. Still yours to
+     decide: whether to run the commission, and whether any photography goes
+     beyond these nine windows.
 
 3. **Ambient audio.** Do you want it, and if so what's the licensing approach for
    chant / call to prayer / temple sound? (Off and empty until you decide.)

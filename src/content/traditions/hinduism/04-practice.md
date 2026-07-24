@@ -4,6 +4,14 @@ title: Practice & Ritual
 order: 4
 contentType: editorial
 voice: third
+infographic:
+  src: /infographics/fourpaths_hinduism.png
+  mobileSrc: /infographics/fourpaths_hinduism_mobile.png
+  alt: "A two-by-two grid of the four classical Hindu paths: Bhakti (devotion, the lover), Karma (action, the servant), Jnana (knowledge, the scholar) and Raja (meditation, the meditator), with four lines converging to a single point below, over a photograph of a climbing path. It illustrates four routes up one mountain, matched to different temperaments."
+  width: 1672
+  height: 941
+  mobileWidth: 1086
+  mobileHeight: 1448
 sources:
   - id: hin-practice-yogas
     type: scholarly

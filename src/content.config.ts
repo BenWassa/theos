@@ -70,6 +70,20 @@ const traditions = defineCollection({
         })
         .optional(),
 
+      // Optional responsive educational graphic placed after the section prose.
+      // Keeping this in content lets future traditions add one without code changes.
+      infographic: z
+        .object({
+          src: z.string(),
+          mobileSrc: z.string(),
+          alt: z.string(),
+          width: z.number().int().positive(),
+          height: z.number().int().positive(),
+          mobileWidth: z.number().int().positive(),
+          mobileHeight: z.number().int().positive(),
+        })
+        .optional(),
+
       // When true, this section refuses figurative imagery and renders a
       // geometric / calligraphic / typographic treatment instead. One template,
       // honestly adapted (e.g. aniconism in Islam) — no bespoke per-tradition code.

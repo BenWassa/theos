@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import SectionMeta from '../SectionMeta.astro';
+import Infographic from '../Infographic.astro';
 type Props = { data: CollectionEntry<'traditions'>['data'] };
 const { data } = Astro.props;
 ---
@@ -10,6 +11,7 @@ const { data } = Astro.props;
   <div class="prose">
     <slot />
   </div>
+  {data.infographic && <Infographic {...data.infographic} />}
   <SectionMeta data={data} />
 </div>
 

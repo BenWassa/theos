@@ -5,6 +5,14 @@ order: 6
 contentType: editorial
 voice: third
 aniconic: false
+infographic:
+  src: /infographics/cross_christianity.png
+  mobileSrc: /infographics/cross_christianity_mobile.png
+  alt: "A weathered cross lit by a single warm light against near-black. A diagram beside it reads 'Execution' pointing with an arrow to 'Hope', summarising how Christianity turned a Roman instrument of death into its sign of hope."
+  width: 1672
+  height: 941
+  mobileWidth: 1086
+  mobileHeight: 1448
 sources:
   - id: chr-symbols-cross
     type: scholarly

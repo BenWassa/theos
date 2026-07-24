@@ -1,0 +1,58 @@
+---
+type Props = {
+  src: string;
+  mobileSrc: string;
+  alt: string;
+  width: number;
+  height: number;
+  mobileWidth: number;
+  mobileHeight: number;
+};
+
+const { src, mobileSrc, alt, width, height, mobileWidth, mobileHeight } = Astro.props;
+---
+
+<figure class="infographic">
+  <picture>
+    <source
+      media="(max-width: 40rem)"
+      srcset={mobileSrc}
+      width={mobileWidth}
+      height={mobileHeight}
+    />
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+    />
+  </picture>
+</figure>
+
+<style>
+  .infographic {
+    width: min(64rem, calc(100vw - (2 * var(--pad))));
+    margin: clamp(3rem, 8vh, 5.5rem) 50%;
+    transform: translateX(-50%);
+  }
+
+  .infographic picture,
+  .infographic img {
+    width: 100%;
+  }
+
+  .infographic img {
+    height: auto;
+    border: 1px solid color-mix(in srgb, var(--border) 72%, var(--text));
+    border-radius: 4px;
+    box-shadow: 0 2rem 5rem -3rem color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+
+  @media (max-width: 40rem) {
+    .infographic {
+      margin-block: 3rem;
+    }
+  }
+</style>

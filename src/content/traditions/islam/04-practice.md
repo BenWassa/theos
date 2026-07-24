@@ -5,6 +5,14 @@ order: 4
 contentType: editorial
 voice: third
 aniconic: true
+infographic:
+  src: /infographics/fourpillars_islam.png
+  mobileSrc: /infographics/fourpillars_islam_mobile.png
+  alt: "Five upright emerald columns on near-black, each labelled with a Pillar of Islam in order: Shahada (declaration), Salah (five daily prayers), Zakat (the yearly share of wealth), Sawm (the Ramadan fast) and Hajj (the pilgrimage to Mecca), with a short description of each. An aniconic photograph of prayer, without any figures, sits above."
+  width: 1672
+  height: 941
+  mobileWidth: 1024
+  mobileHeight: 1536
 sources:
   - id: isl-practice-pillars
     type: scholarly
