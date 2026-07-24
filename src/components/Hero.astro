@@ -1,5 +1,6 @@
 ---
 import Backdrop from './Backdrop.astro';
+import Symbol from './Symbol.astro';
 import type { CollectionEntry } from 'astro:content';
 type Props = { meta: CollectionEntry<'meta'>['data'] };
 const { meta } = Astro.props;
@@ -9,6 +10,8 @@ const { meta } = Astro.props;
   <div class="parallax" data-parallax>
     <Backdrop pattern={meta.pattern} />
   </div>
+
+  <Symbol name={meta.symbol} class="hero-glyph" />
 
   <div class="inner">
     <span class="kicker">{meta.hero.kicker}</span>
@@ -40,6 +43,18 @@ const { meta } = Astro.props;
     inset: -10% 0 0 0;
     z-index: 0;
     will-change: transform;
+  }
+  .hero-glyph {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: clamp(16rem, 42vw, 30rem);
+    height: clamp(16rem, 42vw, 30rem);
+    transform: translate(-50%, -58%);
+    color: var(--accent);
+    opacity: 0.06;
+    pointer-events: none;
   }
   .inner {
     position: relative;

@@ -118,6 +118,11 @@ const meta = defineCollection({
     // Generative backdrop character. 'geometric' honours aniconic traditions.
     pattern: z.enum(['rays', 'geometric', 'bloom']).default('rays'),
 
+    // Key into the self-hosted symbol library (src/data/symbols.ts), rendered
+    // as a watermark behind the tradition. Non-figurative, so it sits happily
+    // within the aniconic approach. Run `npm run gen:symbols` to add more.
+    symbol: z.string().optional(),
+
     hero: z.object({
       // Optional figurative hero. Absent → generative atmosphere.
       image: z.string().optional(),

@@ -1,5 +1,6 @@
 ---
 import Backdrop from './Backdrop.astro';
+import Symbol from './Symbol.astro';
 import type { CollectionEntry } from 'astro:content';
 type Props = {
   slug: string;
@@ -24,6 +25,7 @@ const style = [
 <li>
   <a class="card" href={`/${slug}`} style={style} aria-label={`Enter ${meta.name}`}>
     <Backdrop pattern={meta.pattern} />
+    <Symbol name={meta.symbol} class="glyph" />
     <div class="card-inner">
       <span class="kicker">Tradition</span>
       <h2 class="display name">{meta.name}</h2>
@@ -46,6 +48,23 @@ const style = [
   .card :global(.backdrop) {
     opacity: 0.55;
     transition: opacity 0.6s var(--ease);
+  }
+  .card :global(.glyph) {
+    position: absolute;
+    z-index: 1;
+    right: -1.75rem;
+    bottom: -2.25rem;
+    width: 13rem;
+    height: 13rem;
+    color: var(--accent);
+    opacity: 0.13;
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    pointer-events: none;
+  }
+  .card:hover :global(.glyph),
+  .card:focus-visible :global(.glyph) {
+    opacity: 0.22;
+    transform: scale(1.05) rotate(-3deg);
   }
   .card:hover,
   .card:focus-visible {
@@ -87,11 +106,16 @@ const style = [
   }
   @media (prefers-reduced-motion: reduce) {
     .card,
-    .enter {
+    .enter,
+    .card :global(.glyph) {
       transition: none;
     }
     .enter {
       opacity: 1;
+      transform: none;
+    }
+    .card:hover :global(.glyph),
+    .card:focus-visible :global(.glyph) {
       transform: none;
     }
   }

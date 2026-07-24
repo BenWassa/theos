@@ -14,6 +14,7 @@
     "gradientTo": "#0c0a09"
   },
   "pattern": "rays",
+  "symbol": "cross",
   "hero": {
     "alt": "Light falling through coloured glass into the dark of a stone church",
     "kicker": "A tradition of incarnation and return"

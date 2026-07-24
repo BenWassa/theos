@@ -1,0 +1,29 @@
+---
+// Renders a symbol from the self-hosted library as an inline SVG.
+// Decorative by default (aria-hidden); pass a `title` to make it labelled.
+import { SYMBOLS } from '../data/symbols';
+
+interface Props {
+  name?: string;
+  class?: string;
+  title?: string;
+}
+const { name, class: cls, title } = Astro.props;
+const glyph = name ? SYMBOLS[name as keyof typeof SYMBOLS] : undefined;
+---
+
+{
+  glyph && (
+    <svg
+      class={cls}
+      viewBox={glyph.viewBox}
+      fill="currentColor"
+      role={title ? 'img' : undefined}
+      aria-hidden={title ? undefined : 'true'}
+      aria-label={title ?? glyph.label}
+      focusable="false"
+    >
+      <path d={glyph.path} />
+    </svg>
+  )
+}

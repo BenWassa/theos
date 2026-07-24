@@ -33,6 +33,9 @@ const metas = (await getCollection('meta')).sort(
 
   <footer class="site-foot">
     <span>Project Theos</span>
+    <span class="credit">
+      Symbols <a href="https://fontawesome.com" rel="noopener">Font Awesome</a> · CC BY 4.0
+    </span>
     <a href="/governance">Editorial status</a>
   </footer>
 </BaseLayout>
@@ -90,5 +93,10 @@ const metas = (await getCollection('meta')).sort(
   .site-foot a {
     text-decoration: underline;
     text-underline-offset: 3px;
+  }
+  .site-foot .credit {
+    text-transform: none;
+    letter-spacing: 0.04em;
+    opacity: 0.75;
   }
 </style>

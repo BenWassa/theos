@@ -11,3 +11,7 @@ npm-debug.log*
 .env.production
 # macOS
 .DS_Store
+
+# graphify tool artifacts (not project source)
+.graphify_*
+graphify-out/

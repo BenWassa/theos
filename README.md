@@ -32,11 +32,12 @@ Requires Node 18+ (built and verified on Node 24).
 
 ```
 src/
+  content.config.ts          # THE schema — the enforced content contract (Zod)
   content/
-    content.config.ts        # THE schema — the enforced content contract (Zod)
     traditions/<slug>/        # seven Markdown sections per tradition
       01-origins.md … 07-tensions.md
-    meta/<slug>.json          # name, palette, pattern, disclaimer, audio
+    meta/<slug>.json          # name, palette, symbol, disclaimer, audio
+  data/symbols.ts             # generated symbol library (npm run gen:symbols)
   components/
     modules/                  # EditorialModule · ImmersiveModule · QuoteModule
     Backdrop, Hero, TraditionCard, SectionMeta, LensLabel, SoundToggle

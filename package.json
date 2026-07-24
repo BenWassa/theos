@@ -10,13 +10,15 @@
     "build": "npm run check:sourcing && astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "check:sourcing": "node scripts/check-sourcing.mjs"
+    "check:sourcing": "node scripts/check-sourcing.mjs",
+    "gen:symbols": "node scripts/gen-symbols.mjs"
   },
   "dependencies": {
     "astro": "^5.13.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "typescript": "^5.7.0"
   }
 }

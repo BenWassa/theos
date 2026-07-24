@@ -110,8 +110,8 @@ body {
 }
 
 /* ---- generative backdrop ---------------------------------------------- */
-/* The immersive atmosphere without a single stock photo: layered gradients
-   plus a palette-tinted pattern. Three characters, chosen per tradition. */
+/* Colour only. Patterns were removed so the tradition symbol is the focus —
+   each tradition keeps its palette-driven gradient atmosphere, nothing more. */
 .backdrop {
   position: absolute;
   inset: 0;
@@ -121,43 +121,13 @@ body {
     radial-gradient(120% 90% at 50% -10%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%),
     linear-gradient(180deg, var(--gradient-from), var(--gradient-via) 45%, var(--gradient-to));
 }
-.backdrop::before,
+
+/* faint grain over everything to kill banding */
 .backdrop::after {
   content: "";
   position: absolute;
   inset: -20%;
   pointer-events: none;
-}
-
-/* rays — light falling from above, as through high windows */
-.backdrop[data-pattern="rays"]::before {
-  background: repeating-linear-gradient(
-    100deg,
-    transparent 0 42px,
-    color-mix(in srgb, var(--accent) 9%, transparent) 42px 44px
-  );
-  opacity: 0.5;
-  mask-image: radial-gradient(80% 70% at 50% 0%, #000 10%, transparent 70%);
-}
-
-/* geometric — endless tessellation, no figure (honours aniconism) */
-.backdrop[data-pattern="geometric"]::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%2334d399' stroke-width='1'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3Cpath d='M30 12l18 18-18 18-18-18z'/%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 64px 64px;
-  opacity: 0.14;
-}
-
-/* bloom — soft warm blooms, marigold light */
-.backdrop[data-pattern="bloom"]::before {
-  background:
-    radial-gradient(28% 28% at 20% 30%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 70%),
-    radial-gradient(24% 24% at 78% 22%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%),
-    radial-gradient(30% 30% at 62% 78%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
-  opacity: 0.7;
-}
-
-/* faint grain over everything to kill banding */
-.backdrop::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   opacity: 0.04;
   mix-blend-mode: overlay;

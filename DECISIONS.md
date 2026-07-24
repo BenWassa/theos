@@ -50,15 +50,26 @@ model implies:
   sourced account, then set `review_status: reviewed` + `last_reviewed:` in that
   file's frontmatter. See §B.1 — this needs you.
 
-### 4. Imagery: generative CSS/SVG atmospheres, not stock photos
+### 4. Imagery: colour gradients + a symbol emblem, not stock photos
 The prototype hotlinked Unsplash. I dropped that (fragile, licensing, offline,
-perf) in favour of a **palette-driven generative backdrop** (layered gradients +
-SVG pattern), three characters: `rays`, `geometric`, `bloom`. This aligns with the
-PRD's own line that immersion here comes from writing, pacing, and typography — not
-photography — and it handles aniconism uniformly.
+perf) in favour of **palette-driven colour gradients** per tradition. Immersion
+here comes from writing, pacing, and typography — not photography.
+- Texture patterns (`rays`/`geometric`/`bloom`) were built first, then **removed**
+  so the tradition symbol (§4a) is the focus; only the colour gradient remains. The
+  `pattern` field is left in the schema as dormant, optional plumbing.
 - **The schema still supports real images** (`hero.image`, section `image`). Drop
   a licensed asset in `public/assets/<tradition>/`, reference it, done — no template
   change. See §B.2.
+
+### 4a. Symbols: one consistent icon family, self-hosted
+Each tradition shows its symbol as an accent-tinted watermark behind its card and
+hero (cross, star-and-crescent, om). Source: **Font Awesome Free (solid), CC BY
+4.0** — one cohesive style with broad coverage. Exact SVG paths are extracted at
+build time into `src/data/symbols.ts` (`npm run gen:symbols`); the Font Awesome
+runtime is a devDependency only and is **not** shipped. 17 symbols are in the
+library already (Buddhism, Judaism, Sikhism, Taoism, Baháʼí, Shinto… ) so future
+traditions are a one-line `symbol:` in their `meta.json`. Attribution: footer +
+`CREDITS.md`. Symbols are non-figurative, so they sit within the aniconic approach.
 
 ### 5. Aniconism handled by a flag, not a bespoke Islam layout
 `aniconic: true` on a section (and `pattern: "geometric"` on Islam's meta) forces
