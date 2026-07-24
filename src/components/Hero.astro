@@ -44,7 +44,13 @@ const { meta } = Astro.props;
     z-index: 0;
     will-change: transform;
   }
-  .hero-glyph {
+  /* The symbol SVG is rendered by the child <Symbol> component, so it never
+     receives Hero's scoped `data-astro-cid`. A plain `.hero-glyph` rule would
+     compile to `.hero-glyph[data-astro-cid-…]` and silently miss the SVG,
+     letting it render at intrinsic size and push the hero below the fold.
+     A `.hero :global(.hero-glyph)` descendant keeps the rule bound to the hero
+     subtree while intentionally piercing the component boundary. */
+  .hero :global(.hero-glyph) {
     position: absolute;
     z-index: 1;
     top: 50%;
