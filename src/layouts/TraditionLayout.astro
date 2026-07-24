@@ -2,13 +2,15 @@
 import BaseLayout from './BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SoundToggle from '../components/SoundToggle.astro';
+import ReadingProgress from '../components/ReadingProgress.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   meta: CollectionEntry<'meta'>['data'];
   slug: string;
+  sections: { id: string; title: string }[];
 }
-const { meta } = Astro.props;
+const { meta, sections } = Astro.props;
 const p = meta.palette;
 
 // Per-tradition character is entirely CSS variables fed from meta.json.
@@ -33,6 +35,8 @@ const style = [
     </nav>
 
     <Hero meta={meta} />
+
+    {sections.length > 1 && <ReadingProgress sections={sections} />}
 
     <main id="main" class="content">
       <slot />

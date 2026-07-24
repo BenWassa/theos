@@ -24,9 +24,15 @@ entries.sort((a, b) => a.data.order - b.data.order);
 const sections = await Promise.all(
   entries.map(async (e) => ({ data: e.data, ...(await render(e)) }))
 );
+
+// Way-markers for the reading rail — one per section, anchored to its id.
+const rail = sections.map((s) => ({
+  id: `section-${s.data.section}`,
+  title: s.data.title,
+}));
 ---
 
-<TraditionLayout meta={meta.data} slug={slug}>
+<TraditionLayout meta={meta.data} slug={slug} sections={rail}>
   {
     sections.map(({ data, Content }) => (
       <section id={`section-${data.section}`} aria-label={data.title}>

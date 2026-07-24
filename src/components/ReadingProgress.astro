@@ -1,0 +1,226 @@
+---
+// Reading rail: a thin left-edge progress line + one way-marker per section.
+// Orientation for the long single-scroll read — how far in you are, which
+// section you're in, and how many remain (so §7 Tensions is visibly ahead).
+//
+// Progressive enhancement: the rail is invisible and inert until JS marks it
+// active, so no-JS readers lose nothing. Colour comes entirely from the
+// tradition palette tokens set on the enclosing `.tradition` wrapper.
+interface Props {
+  sections: { id: string; title: string }[];
+}
+const { sections } = Astro.props;
+---
+
+<nav class="rail" aria-label="Reading progress" data-reading-progress>
+  <span class="track" aria-hidden="true"><span class="fill" data-progress-fill></span></span>
+  <ol class="marks">
+    {
+      sections.map((s, i) => (
+        <li>
+          <a
+            class="mark"
+            href={`#${s.id}`}
+            data-mark
+            aria-label={`Section ${i + 1} of ${sections.length}: ${s.title}`}
+          >
+            <span class="dot" aria-hidden="true" />
+            <span class="tip" aria-hidden="true">{s.title}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<script>
+  const rail = document.querySelector<HTMLElement>('[data-reading-progress]');
+  if (rail) {
+    const fill = rail.querySelector<HTMLElement>('[data-progress-fill]')!;
+    const marks = [...rail.querySelectorAll<HTMLElement>('[data-mark]')];
+    const sections = marks.map((m) =>
+      document.querySelector<HTMLElement>(m.getAttribute('href') || '')
+    );
+
+    // Place each way-marker at its section's real scroll position so the fill
+    // and the markers agree. Recomputed on resize (line wrapping shifts offsets).
+    const layout = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      marks.forEach((m, i) => {
+        const sec = sections[i];
+        const li = m.closest('li') as HTMLElement | null;
+        if (!sec || !li) return;
+        const ratio = max > 0 ? Math.min(1, Math.max(0, sec.offsetTop / max)) : 0;
+        li.style.top = `${ratio * 100}%`;
+      });
+    };
+
+    // Continuous scroll progress + reveal once the reader leaves the hero.
+    let ticking = false;
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      fill.style.transform = `scaleY(${p})`;
+      rail.classList.toggle('is-active', window.scrollY > window.innerHeight * 0.55);
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => {
+      layout();
+      onScroll();
+    });
+    layout();
+    update();
+
+    // Which section owns the viewport middle band becomes "current"; earlier
+    // markers read as done. Cheaper and steadier than measuring on every frame.
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const i = sections.indexOf(e.target as HTMLElement);
+          marks.forEach((m, j) => {
+            m.classList.toggle('is-current', j === i);
+            m.classList.toggle('is-read', j < i);
+            if (j === i) m.setAttribute('aria-current', 'true');
+            else m.removeAttribute('aria-current');
+          });
+        }
+      },
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    );
+    sections.forEach((s) => s && io.observe(s));
+  }
+</script>
+
+<style>
+  .rail {
+    position: fixed;
+    left: clamp(0.7rem, 2.4vw, 1.75rem);
+    top: 50%;
+    z-index: 40;
+    height: clamp(13rem, 44vh, 20rem);
+    display: flex;
+    opacity: 0;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: opacity 0.6s var(--ease);
+  }
+  .rail.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .track {
+    position: relative;
+    width: 2px;
+    border-radius: 2px;
+    background: color-mix(in srgb, var(--text) 13%, transparent);
+    overflow: hidden;
+  }
+  .fill {
+    position: absolute;
+    inset: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    border-radius: 2px;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--accent) 80%, transparent),
+      var(--accent)
+    );
+  }
+
+  .marks {
+    position: absolute;
+    inset: 0;
+    left: 1px; /* centre the markers on the 2px track */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .marks li {
+    position: absolute;
+    left: 0;
+    top: 0; /* real position set by JS from section offsets */
+    transform: translate(-50%, -50%);
+  }
+  .mark {
+    display: block;
+    padding: 0.55rem; /* generous, invisible hit target */
+    margin: -0.55rem;
+  }
+  .dot {
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--bg);
+    box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--text) 32%, transparent);
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease),
+      background-color 0.35s var(--ease);
+  }
+  .mark.is-read .dot {
+    background: color-mix(in srgb, var(--accent) 55%, var(--bg));
+    box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+  .mark.is-current .dot {
+    background: var(--accent);
+    box-shadow: 0 0 0 2.5px color-mix(in srgb, var(--accent) 32%, transparent);
+    transform: scale(1.4);
+  }
+
+  .tip {
+    position: absolute;
+    left: calc(100% + 0.7rem);
+    top: 50%;
+    white-space: nowrap;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text);
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+    padding: 0.28rem 0.6rem;
+    border-radius: 3px;
+    opacity: 0;
+    transform: translate(-4px, -50%);
+    pointer-events: none;
+    transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+  .mark:hover .tip,
+  .mark:focus-visible .tip {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+
+  /* Below the reading gutter, drop the way-markers and keep only the thin
+     progress line hugging the edge — still a signal, no crowding. */
+  @media (max-width: 60rem) {
+    .rail {
+      left: 0.55rem;
+    }
+    .marks,
+    .tip {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rail,
+    .dot,
+    .tip {
+      transition: none;
+    }
+  }
+</style>
