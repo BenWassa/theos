@@ -1,0 +1,51 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import TraditionLayout from '../layouts/TraditionLayout.astro';
+import EditorialModule from '../components/modules/EditorialModule.astro';
+import ImmersiveModule from '../components/modules/ImmersiveModule.astro';
+import QuoteModule from '../components/modules/QuoteModule.astro';
+
+export async function getStaticPaths() {
+  const metas = await getCollection('meta');
+  return metas.map((m) => ({ params: { tradition: m.id }, props: { slug: m.id } }));
+}
+
+const { slug } = Astro.props;
+
+const meta = await getEntry('meta', slug);
+if (!meta) throw new Error(`Missing meta.json for tradition "${slug}"`);
+
+// All seven sections for this tradition, in template order.
+const entries = (await getCollection('traditions')).filter((e) =>
+  e.id.startsWith(`${slug}/`)
+);
+entries.sort((a, b) => a.data.order - b.data.order);
+
+const sections = await Promise.all(
+  entries.map(async (e) => ({ data: e.data, ...(await render(e)) }))
+);
+---
+
+<TraditionLayout meta={meta.data} slug={slug}>
+  {
+    sections.map(({ data, Content }) => (
+      <section id={`section-${data.section}`} aria-label={data.title}>
+        {data.contentType === 'editorial' && (
+          <EditorialModule data={data}>
+            <Content />
+          </EditorialModule>
+        )}
+        {data.contentType === 'immersive-paraphrase' && (
+          <ImmersiveModule data={data} pattern={meta.data.pattern}>
+            <Content />
+          </ImmersiveModule>
+        )}
+        {data.contentType === 'attributed-quote' && (
+          <QuoteModule data={data}>
+            <Content />
+          </QuoteModule>
+        )}
+      </section>
+    ))
+  }
+</TraditionLayout>

@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TraditionCard from '../components/TraditionCard.astro';
+
+const metas = (await getCollection('meta')).sort(
+  (a, b) => a.data.weight - b.data.weight
+);
+---
+
+<BaseLayout
+  title="Project Theos"
+  description="An immersive exploration of world religions. Sit inside each tradition long enough to get a felt sense of what it is like from within."
+>
+  <main id="main" class="landing">
+    <header class="intro reveal">
+      <p class="kicker">A personal instrument for exploring faith &amp; meaning</p>
+      <h1 class="display headline">Project Theos</h1>
+      <p class="sub">An immersive exploration of world religions.</p>
+      <p class="lede">
+        Structure exists to serve immersion. Sit inside each tradition long
+        enough to get a felt sense of what it is like from within — not to
+        assemble a comparative fact sheet.
+      </p>
+    </header>
+
+    <nav aria-label="Traditions">
+      <ul class="grid">
+        {metas.map((m) => <TraditionCard slug={m.id} meta={m.data} />)}
+      </ul>
+    </nav>
+  </main>
+
+  <footer class="site-foot">
+    <span>Project Theos</span>
+    <a href="/governance">Editorial status</a>
+  </footer>
+</BaseLayout>
+
+<style>
+  .landing {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: clamp(5rem, 14vh, 9rem) var(--pad) 4rem;
+  }
+  .intro {
+    max-width: 46rem;
+    margin-bottom: clamp(3.5rem, 10vh, 6rem);
+  }
+  .kicker {
+    margin-bottom: 1.5rem;
+  }
+  .headline {
+    font-size: clamp(3rem, 10vw, 7rem);
+    margin-bottom: 1.5rem;
+  }
+  .sub {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: clamp(1.3rem, 1rem + 1.4vw, 2rem);
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+  .lede {
+    font-style: italic;
+    font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem);
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--text) 78%, transparent);
+    max-width: 38rem;
+  }
+  .grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 1.25rem;
+  }
+  .site-foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 2rem var(--pad);
+    border-top: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .site-foot a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>

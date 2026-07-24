@@ -1,0 +1,22 @@
+{
+  "name": "theos",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "Project Theos — an immersive exploration of world religions.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "npm run check:sourcing && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "check:sourcing": "node scripts/check-sourcing.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.13.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,11 @@
+---
+// Generative, image-free atmosphere driven entirely by palette tokens.
+// `pattern` picks the character; 'geometric' is the non-figurative treatment
+// used by aniconic traditions.
+interface Props {
+  pattern?: 'rays' | 'geometric' | 'bloom';
+}
+const { pattern = 'rays' } = Astro.props;
+---
+
+<div class="backdrop" data-pattern={pattern} aria-hidden="true"></div>

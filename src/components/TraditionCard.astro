@@ -1,0 +1,98 @@
+---
+import Backdrop from './Backdrop.astro';
+import type { CollectionEntry } from 'astro:content';
+type Props = {
+  slug: string;
+  meta: CollectionEntry<'meta'>['data'];
+};
+const { slug, meta } = Astro.props;
+// Card carries its tradition's palette so the whole index previews the range.
+const p = meta.palette;
+const style = [
+  `--bg:${p.bg}`,
+  `--surface:${p.surface}`,
+  `--text:${p.text}`,
+  `--muted:${p.muted}`,
+  `--accent:${p.accent}`,
+  `--border:${p.border}`,
+  `--gradient-from:${p.gradientFrom}`,
+  `--gradient-via:${p.gradientVia}`,
+  `--gradient-to:${p.gradientTo}`,
+].join(';');
+---
+
+<li>
+  <a class="card" href={`/${slug}`} style={style} aria-label={`Enter ${meta.name}`}>
+    <Backdrop pattern={meta.pattern} />
+    <div class="card-inner">
+      <span class="kicker">Tradition</span>
+      <h2 class="display name">{meta.name}</h2>
+      <span class="enter">Enter →</span>
+    </div>
+  </a>
+</li>
+
+<style>
+  .card {
+    position: relative;
+    display: block;
+    height: 20rem;
+    border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+    border-radius: 4px;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.5s var(--ease), border-color 0.5s var(--ease);
+  }
+  .card :global(.backdrop) {
+    opacity: 0.55;
+    transition: opacity 0.6s var(--ease);
+  }
+  .card:hover,
+  .card:focus-visible {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  }
+  .card:hover :global(.backdrop),
+  .card:focus-visible :global(.backdrop) {
+    opacity: 0.85;
+  }
+  .card-inner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--text);
+  }
+  .name {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin-top: 0.75rem;
+  }
+  .enter {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  }
+  .card:hover .enter,
+  .card:focus-visible .enter {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card,
+    .enter {
+      transition: none;
+    }
+    .enter {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

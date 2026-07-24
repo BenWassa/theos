@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+type Lens = NonNullable<CollectionEntry<'traditions'>['data']['lens']>;
+type Props = { lens: Lens };
+const { lens } = Astro.props;
+---
+
+<div class="lens">
+  <span class="label">Lived lens</span>
+  <p class="detail">
+    <strong>{lens.branch}</strong> · {lens.occasion}<br />
+    <span class="place">{lens.location} · {lens.period}</span>
+  </p>
+</div>
+
+<style>
+  .lens {
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    border-left: 2px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+  .label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .detail {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .place {
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+</style>

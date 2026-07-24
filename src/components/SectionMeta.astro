@@ -1,0 +1,103 @@
+---
+import type { CollectionEntry } from 'astro:content';
+type Props = { data: CollectionEntry<'traditions'>['data'] };
+const { data } = Astro.props;
+
+const reviewed = data.review_status === 'reviewed';
+const statusLabel = data.review_status.replace(/-/g, ' ');
+---
+
+<footer class="meta">
+  <ul class="sources">
+    {
+      data.sources.map((s) => (
+        <li>
+          <span class="src-type">{s.type.replace(/-/g, ' ')}</span>
+          {s.url ? (
+            <a href={s.url} rel="noopener">
+              {s.text}
+            </a>
+          ) : (
+            <span>{s.text}</span>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class:list={['status', reviewed ? 'ok' : 'warn']}>
+    <span class="dot" aria-hidden="true"></span>
+    <span class="status-label">{statusLabel}</span>
+    {data.last_reviewed && <span class="date">· reviewed {data.last_reviewed}</span>}
+  </p>
+</footer>
+
+<style>
+  .meta {
+    margin-top: 2.5rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
+    font-family: var(--font-sans);
+    max-width: var(--measure);
+  }
+  .sources {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .sources li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.6rem;
+    align-items: baseline;
+  }
+  .src-type {
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    border-radius: 3px;
+    padding: 0.1rem 0.4rem;
+    white-space: nowrap;
+  }
+  .sources a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex: none;
+  }
+  .status.ok .dot {
+    background: #34d399;
+  }
+  .status.warn .dot {
+    background: #eab308;
+  }
+  .status.ok {
+    color: #6ee7b7;
+  }
+  .status.warn {
+    color: #fACC15;
+  }
+  .date {
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+</style>

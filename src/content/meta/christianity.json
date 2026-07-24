@@ -1,0 +1,22 @@
+{
+  "name": "Christianity",
+  "weight": 1,
+  "disclaimer": "This experience presents selected voices and practices within a diverse global tradition of over two billion people. It is not a claim that all Christians believe or live identically.",
+  "palette": {
+    "bg": "#0c0a09",
+    "surface": "#1c1917",
+    "text": "#e7e5e4",
+    "muted": "#a8a29e",
+    "accent": "#f59e0b",
+    "border": "#78350f",
+    "gradientFrom": "#0c0a09",
+    "gradientVia": "#1c1917",
+    "gradientTo": "#0c0a09"
+  },
+  "pattern": "rays",
+  "hero": {
+    "alt": "Light falling through coloured glass into the dark of a stone church",
+    "kicker": "A tradition of incarnation and return"
+  },
+  "ambientAudio": ""
+}

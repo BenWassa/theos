@@ -1,0 +1,61 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionMeta from '../SectionMeta.astro';
+type Props = { data: CollectionEntry<'traditions'>['data'] };
+const { data } = Astro.props;
+---
+
+<div class="quote reveal">
+  <span class="label">{data.title}</span>
+  <blockquote>
+    <div class="prose">
+      <slot />
+    </div>
+    <footer>
+      <cite>— {data.attribution}</cite>
+    </footer>
+  </blockquote>
+  <SectionMeta data={data} />
+</div>
+
+<style>
+  .quote {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: clamp(4rem, 12vh, 9rem) 0;
+  }
+  .label {
+    display: block;
+    margin-bottom: 1.8rem;
+  }
+  blockquote {
+    border-left: 3px solid color-mix(in srgb, var(--accent) 60%, transparent);
+    padding-left: clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .prose {
+    font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.3rem);
+    line-height: 1.4;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+  .prose :global(p) {
+    margin-bottom: 1.2rem;
+  }
+  .prose :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  .prose :global(em) {
+    color: var(--accent);
+  }
+  footer {
+    margin-top: 1.8rem;
+  }
+  cite {
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+</style>

@@ -1,0 +1,22 @@
+{
+  "name": "Hinduism",
+  "weight": 3,
+  "disclaimer": "Hinduism encompasses a vast array of philosophies, lineages, and local practices gathered under the name Sanatana Dharma. This experience presents only specific, localized lenses and does not represent the whole.",
+  "palette": {
+    "bg": "#1a0803",
+    "surface": "#431407",
+    "text": "#fff7ed",
+    "muted": "#c9a48a",
+    "accent": "#fb923c",
+    "border": "#9a3412",
+    "gradientFrom": "#1a0803",
+    "gradientVia": "#3b0d0d",
+    "gradientTo": "#1a0803"
+  },
+  "pattern": "bloom",
+  "hero": {
+    "alt": "Lamplight and marigold warmth in the dark of a home shrine",
+    "kicker": "A tradition of the wheel and the Self"
+  },
+  "ambientAudio": ""
+}

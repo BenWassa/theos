@@ -1,0 +1,215 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// The editorial cockpit: what is real, what is placeholder, what blocks ship.
+const metas = await getCollection('meta');
+const sections = await getCollection('traditions');
+
+const nameBySlug = new Map(metas.map((m) => [m.id, m.data.name]));
+
+type Row = (typeof sections)[number];
+const bySlug = new Map<string, Row[]>();
+for (const s of sections) {
+  const slug = s.id.split('/')[0];
+  const list = bySlug.get(slug) ?? [];
+  list.push(s);
+  bySlug.set(slug, list);
+}
+for (const list of bySlug.values()) list.sort((a, b) => a.data.order - b.data.order);
+
+const counts = { reviewed: 0, 'needs-practitioner-review': 0, draft: 0 };
+for (const s of sections) counts[s.data.review_status]++;
+const total = sections.length;
+
+// The public-ship gate: no immersive/quote section may ship un-reviewed.
+const blocking = sections.filter(
+  (s) =>
+    s.data.contentType !== 'editorial' && s.data.review_status !== 'reviewed'
+).length;
+---
+
+<BaseLayout title="Editorial status · Project Theos" description="Internal sourcing and review status.">
+  <main id="main" class="gov">
+    <a class="back" href="/">← Index</a>
+    <h1 class="display">Editorial status</h1>
+    <p class="intro">
+      Every section carries its sources and a review status. Narrative and
+      testimony sections must be verified against a real account before they can
+      be marked <strong>reviewed</strong>. This page is the source of truth for
+      what is ready and what is not.
+    </p>
+
+    <ul class="tally">
+      <li><span class="n">{total}</span> sections</li>
+      <li class="ok"><span class="n">{counts.reviewed}</span> reviewed</li>
+      <li class="warn"><span class="n">{counts['needs-practitioner-review']}</span> need review</li>
+      <li class="draft"><span class="n">{counts.draft}</span> draft</li>
+    </ul>
+
+    <p class:list={['gate', blocking === 0 ? 'ok' : 'warn']}>
+      {
+        blocking === 0
+          ? 'Public-ship gate: PASSING — every narrative/testimony section is reviewed.'
+          : `Public-ship gate: ${blocking} narrative/testimony section${blocking === 1 ? '' : 's'} not yet reviewed. Run "npm run check:sourcing -- --strict" to block a public build.`
+      }
+    </p>
+
+    {
+      [...bySlug.entries()].map(([slug, list]) => (
+        <section class="trad">
+          <h2>{nameBySlug.get(slug) ?? slug}</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Section</th>
+                <th>Type</th>
+                <th>Sources</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {list.map((s) => (
+                <tr>
+                  <td>{s.data.order}</td>
+                  <td>{s.data.title}</td>
+                  <td class="mono">{s.data.contentType}</td>
+                  <td>{s.data.sources.length}</td>
+                  <td>
+                    <span class:list={['badge', s.data.review_status]}>
+                      {s.data.review_status.replace(/-/g, ' ')}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      ))
+    }
+  </main>
+</BaseLayout>
+
+<style>
+  .gov {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 8vh, 6rem) var(--pad) 6rem;
+    font-family: var(--font-sans);
+  }
+  .back {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 1.5rem 0 1rem;
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+  }
+  .intro {
+    max-width: 42rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 2.5rem;
+  }
+  .intro strong {
+    color: var(--text);
+  }
+  .tally {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .tally .n {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-right: 0.35rem;
+  }
+  .tally .ok .n {
+    color: #34d399;
+  }
+  .tally .warn .n {
+    color: #eab308;
+  }
+  .tally .draft .n {
+    color: var(--muted);
+  }
+  .gate {
+    padding: 0.9rem 1.1rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    margin-bottom: 3rem;
+    border: 1px solid;
+  }
+  .gate.ok {
+    color: #6ee7b7;
+    border-color: color-mix(in srgb, #34d399 40%, transparent);
+    background: color-mix(in srgb, #34d399 8%, transparent);
+  }
+  .gate.warn {
+    color: #fde047;
+    border-color: color-mix(in srgb, #eab308 40%, transparent);
+    background: color-mix(in srgb, #eab308 8%, transparent);
+  }
+  .trad {
+    margin-bottom: 2.75rem;
+  }
+  .trad h2 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 0.85rem;
+    color: var(--accent);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  }
+  th {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid;
+  }
+  .badge.reviewed {
+    color: #6ee7b7;
+    border-color: color-mix(in srgb, #34d399 45%, transparent);
+  }
+  .badge.needs-practitioner-review {
+    color: #fde047;
+    border-color: color-mix(in srgb, #eab308 45%, transparent);
+  }
+  .badge.draft {
+    color: var(--muted);
+    border-color: color-mix(in srgb, var(--muted) 40%, transparent);
+  }
+</style>

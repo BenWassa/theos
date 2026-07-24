@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionMeta from '../SectionMeta.astro';
+type Props = { data: CollectionEntry<'traditions'>['data'] };
+const { data } = Astro.props;
+---
+
+<div class="editorial reveal">
+  <span class="label">{data.title}</span>
+  <div class="prose">
+    <slot />
+  </div>
+  <SectionMeta data={data} />
+</div>
+
+<style>
+  .editorial {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: clamp(4rem, 12vh, 9rem) 0;
+  }
+  .label {
+    display: block;
+    margin-bottom: 1.6rem;
+  }
+  .prose {
+    font-size: clamp(1.15rem, 1rem + 0.7vw, 1.4rem);
+    line-height: 1.75;
+    font-weight: 400;
+  }
+  .prose :global(p) {
+    margin-bottom: 1.4rem;
+  }
+  .prose :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  .prose :global(strong) {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .prose :global(em) {
+    font-style: italic;
+    color: color-mix(in srgb, var(--text) 88%, var(--accent));
+  }
+</style>

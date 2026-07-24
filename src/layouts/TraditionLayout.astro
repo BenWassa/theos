@@ -1,0 +1,116 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SoundToggle from '../components/SoundToggle.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  meta: CollectionEntry<'meta'>['data'];
+  slug: string;
+}
+const { meta } = Astro.props;
+const p = meta.palette;
+
+// Per-tradition character is entirely CSS variables fed from meta.json.
+const style = [
+  `--bg:${p.bg}`,
+  `--surface:${p.surface}`,
+  `--text:${p.text}`,
+  `--muted:${p.muted}`,
+  `--accent:${p.accent}`,
+  `--border:${p.border}`,
+  `--gradient-from:${p.gradientFrom}`,
+  `--gradient-via:${p.gradientVia}`,
+  `--gradient-to:${p.gradientTo}`,
+].join(';');
+---
+
+<BaseLayout title={`${meta.name} · Project Theos`} description={meta.disclaimer}>
+  <div class="tradition" style={style}>
+    <nav class="topbar" aria-label="Primary">
+      <a class="back" href="/">← Index</a>
+      <a class="wordmark" href="/">Theos</a>
+    </nav>
+
+    <Hero meta={meta} />
+
+    <main id="main" class="content">
+      <slot />
+    </main>
+
+    <footer class="end">— End of {meta.name} —</footer>
+
+    {meta.ambientAudio && <SoundToggle src={meta.ambientAudio} label="Ambient" />}
+  </div>
+
+  <script>
+    // Cheap, jank-free parallax on the hero backdrop. Skipped for reduced motion.
+    const el = document.querySelector<HTMLElement>('[data-parallax]');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (el && !reduce) {
+      let ticking = false;
+      const onScroll = () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            el.style.transform = `translateY(${window.scrollY * 0.3}px) scale(1.06)`;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .tradition {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  .topbar {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem var(--pad);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+    backdrop-filter: blur(2px);
+  }
+  .back,
+  .wordmark {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: opacity 0.3s var(--ease);
+  }
+  .back:hover,
+  .wordmark:hover {
+    opacity: 0.65;
+  }
+  .wordmark {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 var(--pad) 5rem;
+  }
+  .end {
+    text-align: center;
+    padding: 4rem 0 6rem;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.7;
+  }
+</style>

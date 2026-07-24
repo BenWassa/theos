@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionMeta from '../SectionMeta.astro';
+import LensLabel from '../LensLabel.astro';
+import Backdrop from '../Backdrop.astro';
+type Props = {
+  data: CollectionEntry<'traditions'>['data'];
+  pattern?: 'rays' | 'geometric' | 'bloom';
+};
+const { data, pattern } = Astro.props;
+// Aniconic sections never take figurative imagery; force the geometric character.
+const effectivePattern = data.aniconic ? 'geometric' : pattern;
+---
+
+<div class="immersive reveal">
+  <Backdrop pattern={effectivePattern} />
+  <div class="panel">
+    {data.lens && <LensLabel lens={data.lens} />}
+    <div class="prose">
+      <slot />
+    </div>
+    <SectionMeta data={data} />
+  </div>
+</div>
+
+<style>
+  .immersive {
+    position: relative;
+    margin: clamp(3rem, 8vh, 6rem) calc(-1 * var(--pad));
+    padding: clamp(5rem, 16vh, 11rem) var(--pad);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .panel {
+    position: relative;
+    z-index: 2;
+    max-width: 46rem;
+    margin: 0 auto;
+    background: color-mix(in srgb, #000 55%, transparent);
+    backdrop-filter: blur(10px) saturate(1.1);
+    -webkit-backdrop-filter: blur(10px) saturate(1.1);
+    border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+    border-radius: 4px;
+    padding: clamp(1.75rem, 5vw, 3.5rem);
+    box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8);
+  }
+  .prose {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: clamp(1.3rem, 1.1rem + 1.1vw, 1.9rem);
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+  }
+  .prose :global(p) {
+    margin-bottom: 1.5rem;
+  }
+  .prose :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  .prose :global(em) {
+    font-style: italic;
+    color: var(--accent);
+  }
+</style>
