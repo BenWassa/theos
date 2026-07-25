@@ -3,15 +3,15 @@
   "weight": 2,
   "disclaimer": "This experience presents selected voices and practices within a diverse global tradition. It is not a claim that all Muslims believe or live identically. In keeping with the tradition's own restraint toward figurative imagery, this section is rendered without depictions of persons.",
   "palette": {
-    "bg": "#021a14",
-    "surface": "#064e3b",
+    "bg": "#071410",
+    "surface": "#102c23",
     "text": "#ecfdf5",
     "muted": "#89b3a3",
     "accent": "#34d399",
     "border": "#065f46",
-    "gradientFrom": "#021a14",
-    "gradientVia": "#052e26",
-    "gradientTo": "#021a14"
+    "gradientFrom": "#071410",
+    "gradientVia": "#0d201a",
+    "gradientTo": "#071410"
   },
   "pattern": "geometric",
   "symbol": "star-and-crescent",
