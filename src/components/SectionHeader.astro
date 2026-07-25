@@ -1,7 +1,7 @@
 ---
 // The consistent "chapter opening" every section shares: a hairline rule, the
 // slot's icon, its number in the sequence, and a real serif title. This is the
-// repeating grammar that orients the long single-scroll read — before this,
+// repeating grammar that orients the long single-scroll read, before this,
 // editorial/quote sections opened with only a small floating tag and the
 // immersive section had no title at all, so scrolling had no sense of "new
 // chapter". Rendered identically above all three module types.
@@ -17,13 +17,16 @@ const { data, total } = Astro.props;
 
 const key = data.section as SectionKey;
 const icon = SECTION_ICONS[key];
-const measure = SECTION_MEASURE[key];
 const num = String(data.order).padStart(2, '0');
 const count = String(total).padStart(2, '0');
 const headingId = `heading-${data.section}`;
+const chapterProgress = total > 0 ? `${Math.min(data.order / total, 1) * 100}%` : '0%';
 ---
 
-<header class="section-head reveal" style={`--head-measure:${measure}`}>
+<header
+  class="section-head reveal"
+  style={`--head-measure:${SECTION_MEASURE};--chapter-progress:${chapterProgress}`}
+>
   <div class="meta">
     <span class="badge" aria-hidden="true">
       <Symbol name={icon} class="badge-icon" />
@@ -40,7 +43,9 @@ const headingId = `heading-${data.section}`;
     padding-top: clamp(1.4rem, 3vh, 2.2rem);
     border-top: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
   }
-  /* A short accent tick riding the hairline — the one ember, used sparingly. */
+  /* The ember advances one chapter at a time while the full hairline keeps the
+     remaining journey visible. It stays static so progress reads as orientation,
+     not an achievement mechanic. */
   .section-head {
     position: relative;
   }
@@ -49,7 +54,7 @@ const headingId = `heading-${data.section}`;
     position: absolute;
     top: -1px;
     left: 0;
-    width: 2.75rem;
+    width: var(--chapter-progress);
     height: 2px;
     background: var(--accent);
   }

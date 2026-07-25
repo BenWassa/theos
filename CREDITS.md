@@ -4,7 +4,7 @@
 Religious symbols are from **[Font Awesome Free](https://fontawesome.com)** (solid
 style), licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**.
 
-Only the SVG path data for a curated set is used — extracted at build time into
+Only the SVG path data for a curated set is used, extracted at build time into
 `src/data/symbols.ts` by `scripts/gen-symbols.mjs`. The Font Awesome runtime is a
 `devDependency` only and is **not** shipped in the built site. Regenerate or extend
 the set with `npm run gen:symbols`.

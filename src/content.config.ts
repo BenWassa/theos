@@ -7,7 +7,7 @@ import { glob } from 'astro/loaders';
 // This schema is the governance. Zod runs at build time, so a section that is
 // malformed, sourceless, or missing its required scoping metadata FAILS the
 // build rather than shipping. Adding a tradition means adding data that passes
-// this contract — never editing code.
+// this contract, never editing code.
 // ============================================================================
 
 // PRD sourcing priority: lived accounts first, scholarly scaffolding last.
@@ -18,7 +18,7 @@ const source = z.object({
     'oral-history',
     'documentary',
     'sacred-text', // primary scripture, translated excerpt
-    'scholarly', // academic — factual scaffolding only
+    'scholarly', // academic, factual scaffolding only
   ]),
   text: z.string(),
   url: z.string().url().optional(),
@@ -86,13 +86,13 @@ const traditions = defineCollection({
 
       // When true, this section refuses figurative imagery and renders a
       // geometric / calligraphic / typographic treatment instead. One template,
-      // honestly adapted (e.g. aniconism in Islam) — no bespoke per-tradition code.
+      // honestly adapted (e.g. aniconism in Islam), no bespoke per-tradition code.
       aniconic: z.boolean().default(false),
 
       // Optional ambient loop for this section (relative to /public).
       audio: z.string().optional(),
 
-      // Governance. `sources` has a hard floor of one — no section ships
+      // Governance. `sources` has a hard floor of one, no section ships
       // sourceless. `review_status` is the ship gate (see scripts/check-sourcing.mjs).
       sources: z.array(source).min(1),
       review_status: z.enum(['draft', 'needs-practitioner-review', 'reviewed']),
@@ -112,7 +112,7 @@ const meta = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/meta' }),
   schema: z.object({
     name: z.string(),
-    weight: z.number(), // ordering on the index — lower shows first
+    weight: z.number(), // ordering on the index, lower shows first
     disclaimer: z.string(),
 
     // Palette tokens are raw CSS colour values, editable by a non-coder.

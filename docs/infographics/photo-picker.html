@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Photo Picker — Project Theos Infographics</title>
+<title>Photo Picker, Project Theos Infographics</title>
 <style>
   :root{
     --bg:#0c0a09; --surface:#1c1917; --text:#e7e5e4; --muted:#a8a29e;
@@ -78,16 +78,16 @@
     <span class="kicker">Sourcing tool · Infographics</span>
     <h1>Photo Picker</h1>
     <p class="lead">Nine educational infographics, each built around <b style="color:var(--gold)">one real-world
-      photograph</b> — the single sanctioned photo on the site. This page collects curated
+      photograph</b>, the single sanctioned photo on the site. This page collects curated
       Unsplash <em>search lenses</em> per infographic so you can browse honest, free-to-use
       candidates and pick the source image. The chosen photo is then duotone-treated toward its
       tradition's palette (see each brief).</p>
     <p class="how">
-      <b>How to use.</b> Each infographic below lists a few <b>lenses</b> — pre-filled Unsplash
+      <b>How to use.</b> Each infographic below lists a few <b>lenses</b>, pre-filled Unsplash
       searches from a different angle. Click a lens (opens Unsplash in a new tab), browse, and note
       the ones you like. Read each lens's <span class="look">look for</span> / <span class="avoid">avoid</span>
       guidance first. When you pick, save the photo's page URL + photographer name so it can be
-      credited in <b>CREDITS.md</b> (Unsplash licence — free, credit appreciated).
+      credited in <b>CREDITS.md</b> (Unsplash licence, free, credit appreciated).
     </p>
     <div class="filters" id="filters">
       <button class="fbtn active" data-filter="all">All</button>
@@ -105,7 +105,7 @@
       Record the photographer + photo URL for each pick; add credit lines to <code>CREDITS.md</code>
       and drop the treated asset in <code>public/assets/&lt;tradition&gt;/</code>.</p>
     <p style="margin-top:.75rem"><b style="color:var(--text)">Reminder.</b> These photos are a bounded
-      exception to the site's no-photography rule — one treated window per infographic, tinted into the
+      exception to the site's no-photography rule, one treated window per infographic, tinted into the
       ember room. They are not a licence for stock imagery elsewhere on the site.</p>
   </footer>
 </div>
@@ -116,7 +116,7 @@ const UNSPLASH = "https://unsplash.com/s/photos/";
 // each lens: { q: query, label, look, avoid }
 const DATA = [
   { trad:"christianity", num:"01", title:"The Cross", section:"§6 Symbols", orient:"portrait",
-    purpose:"An instrument of execution turned into the sign of hope — the graphic needs a real cross as a weathered material object.",
+    purpose:"An instrument of execution turned into the sign of hope, the graphic needs a real cross as a weathered material object.",
     lenses:[
       {q:"wooden cross weathered", label:"Weathered wooden cross", look:"age, grain, texture; a single object against dark", avoid:"glossy new metal crosses; busy backgrounds"},
       {q:"crucifix necklace", label:"Crucifix worn at the throat", look:"intimate scale, skin, low light", avoid:"jewellery-catalogue styling"},
@@ -124,7 +124,7 @@ const DATA = [
       {q:"stone cross old church", label:"Old stone cross", look:"carved, eroded, monochrome-friendly", avoid:"tourist crowds in frame"}
     ]},
   { trad:"christianity", num:"02", title:"Light in Sacred Space", section:"§6 Symbols", orient:"portrait",
-    purpose:"Light as architectural theology — stained glass cast on stone, or a single candle in a dark chapel.",
+    purpose:"Light as architectural theology, stained glass cast on stone, or a single candle in a dark chapel.",
     lenses:[
       {q:"stained glass light floor", label:"Coloured light on stone", look:"shafts of colour laid across floor/pew; dark room", avoid:"flat evenly-lit interiors"},
       {q:"candle dark church", label:"Single candle in the dark", look:"one flame, deep shadow, warmth", avoid:"birthday/decorative candles"},
@@ -132,7 +132,7 @@ const DATA = [
       {q:"cathedral light beam", label:"Light beam in nave", look:"visible shaft, dust, dark stone", avoid:"HDR over-processing"}
     ]},
   { trad:"christianity", num:"03", title:"The Liturgical Year", section:"§4 Practice", orient:"landscape",
-    purpose:"Time shaped into a returning cycle — one seasonal material marker (Advent wreath is ideal: itself a ring).",
+    purpose:"Time shaped into a returning cycle, one seasonal material marker (Advent wreath is ideal: itself a ring).",
     lenses:[
       {q:"advent wreath candles", label:"Advent wreath (a ring of time)", look:"circular arrangement, candlelight", avoid:"cartoonish decoration"},
       {q:"easter candle light", label:"Easter / paschal light", look:"single large candle, release, warmth", avoid:"egg-and-bunny imagery"},
@@ -141,7 +141,7 @@ const DATA = [
     ]},
 
   { trad:"islam", num:"04", title:"The Five Pillars", section:"§4 Practice", orient:"portrait", aniconic:true,
-    purpose:"A life carried by schedule — a material anchor of practice, rendered without figures.",
+    purpose:"A life carried by schedule, a material anchor of practice, rendered without figures.",
     lenses:[
       {q:"prayer mat", label:"Empty prayer mat", look:"pattern, texture, a waiting object; no person", avoid:"faces; people mid-prayer up close"},
       {q:"mosque courtyard geometry", label:"Mosque courtyard", look:"repeating arches, order, geometry", avoid:"identifiable individuals foreground"},
@@ -149,7 +149,7 @@ const DATA = [
       {q:"hands prayer dua", label:"Cupped hands (no face)", look:"gesture only, cropped above wrists", avoid:"portraits; recognisable faces"}
     ]},
   { trad:"islam", num:"05", title:"Word & Pattern", section:"§6 Symbols", orient:"portrait", aniconic:true,
-    purpose:"The turn from figurative image to calligraphy and geometry — the photo IS writing or pattern.",
+    purpose:"The turn from figurative image to calligraphy and geometry, the photo IS writing or pattern.",
     lenses:[
       {q:"islamic geometric tile", label:"Geometric tile / zellij", look:"crisp interlacing star lattice", avoid:"blurry or low-res tile shots"},
       {q:"arabic calligraphy architecture", label:"Calligraphy on architecture", look:"real script carved/tiled, in situ", avoid:"decorative faux-Arabic; tattoo fonts"},
@@ -157,7 +157,7 @@ const DATA = [
       {q:"quran calligraphy", label:"Qur'an calligraphy", look:"correctly-formed script, reverent", avoid:"anything mishandling the text"}
     ]},
   { trad:"islam", num:"06", title:"The Adhan", section:"§6 Symbols", orient:"portrait", aniconic:true,
-    purpose:"Sound made visible — the source of the call: a minaret against sky. No muezzin figure.",
+    purpose:"Sound made visible, the source of the call: a minaret against sky. No muezzin figure.",
     lenses:[
       {q:"minaret sky dawn", label:"Minaret at dawn", look:"vertical, silhouette, open sky to radiate into", avoid:"a person in the tower"},
       {q:"mosque minaret silhouette", label:"Minaret silhouette", look:"clean outline, dusk/dawn glow", avoid:"blue-hour blues (keep it emerald-tintable)"},
@@ -165,7 +165,7 @@ const DATA = [
     ]},
 
   { trad:"hinduism", num:"07", title:"The Sensory Grammar", section:"§6 Symbols", orient:"portrait",
-    purpose:"Worship as joyful abundance of the senses — the most colour-rich window of the nine.",
+    purpose:"Worship as joyful abundance of the senses, the most colour-rich window of the nine.",
     lenses:[
       {q:"diya oil lamp marigold", label:"Diya + marigold", look:"flame + orange petals together; warmth", avoid:"cold, minimal styling"},
       {q:"hindu puja offerings", label:"Puja thali of offerings", look:"colour, fruit, flower, lamp; material fullness", avoid:"staged studio flatlay"},
@@ -173,7 +173,7 @@ const DATA = [
       {q:"holi color powder", label:"Holi pigment", look:"drenching colour, joy", avoid:"party-foam/crowd chaos"}
     ]},
   { trad:"hinduism", num:"08", title:"The Four Paths", section:"§4 Practice", orient:"portrait",
-    purpose:"Four roads up one mountain — an image of path/practice, not a single named deity.",
+    purpose:"Four roads up one mountain, an image of path/practice, not a single named deity.",
     lenses:[
       {q:"temple steps india", label:"Temple steps climbing", look:"literal 'roads up the mountain', worn stone", avoid:"one specific deity as 'the' image"},
       {q:"meditation silhouette sunrise", label:"Meditation silhouette", look:"stillness (raja), figure abstracted", avoid:"branded yoga-studio look"},
@@ -181,9 +181,9 @@ const DATA = [
       {q:"hindu prayer hands offering", label:"Devotional gesture (bhakti)", look:"hands, offering, no reliance on a face", avoid:"close portraits"}
     ]},
   { trad:"hinduism", num:"09", title:"Om & Darshan", section:"§6 Symbols", orient:"portrait",
-    purpose:"Sound + sight — Om, and the mutual gaze of darshan. Here a deity image (murti) IS the subject.",
+    purpose:"Sound + sight, Om, and the mutual gaze of darshan. Here a deity image (murti) IS the subject.",
     lenses:[
-      {q:"hindu deity eyes murti", label:"Eyes of a murti", look:"the gaze — eyes present, meeting the viewer", avoid:"eyes cropped out; motion blur"},
+      {q:"hindu deity eyes murti", label:"Eyes of a murti", look:"the gaze, eyes present, meeting the viewer", avoid:"eyes cropped out; motion blur"},
       {q:"arti lamp ceremony", label:"Arti lamp before the deity", look:"lamp offered to an image, warm glow", avoid:"chaotic crowd shots"},
       {q:"hindu shrine lamp decorated", label:"Lamp-lit shrine", look:"dressed, adorned murti, intimate light", avoid:"museum-artifact lighting"},
       {q:"om symbol carved", label:"Om (the sound)", look:"the syllable as carved/painted form", avoid:"generic 'yoga' om logos"}
@@ -192,7 +192,7 @@ const DATA = [
 
 const EMBER = { christianity:"Amber ember · #f59e0b", islam:"Emerald ember · #34d399", hinduism:"Orange ember · #fb923c" };
 const TRAD_NAME = { christianity:"Christianity", islam:"Islam", hinduism:"Hinduism" };
-const ANICONIC_MSG = "Aniconic — render without depictions of persons or of God/prophets. Photo lenses below avoid faces and figurative religious imagery. (Piece 09 Hinduism is the opposite — a deity image is the intended subject there.)";
+const ANICONIC_MSG = "Aniconic, render without depictions of persons or of God/prophets. Photo lenses below avoid faces and figurative religious imagery. (Piece 09 Hinduism is the opposite, a deity image is the intended subject there.)";
 
 function briefFile(d){
   const slug = d.title.toLowerCase().replace(/&/g,"and").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");

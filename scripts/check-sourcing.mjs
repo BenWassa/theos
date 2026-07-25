@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Sourcing gate — Project Theos.
+ * Sourcing gate, Project Theos.
  *
  * The PRD's central content rule: every immersive/testimony section must trace
  * to a real account, and composites must never be presented as authentic.
@@ -88,7 +88,7 @@ const blocking = rows.filter(
 );
 
 console.log('');
-console.log(C.bold('  Project Theos — sourcing gate'));
+console.log(C.bold('  Project Theos, sourcing gate'));
 console.log(C.dim(`  ${rows.length} sections · ${strict ? 'STRICT' : 'report'} mode`));
 console.log('');
 console.log(`  ${C.green(counts.reviewed + ' reviewed')}   ` +
@@ -105,7 +105,7 @@ if (problems.length) {
 if (blocking.length) {
   console.log(C.yellow('  Narrative / testimony sections awaiting review:'));
   for (const r of blocking) {
-    console.log(`   • ${C.dim(r.rel)} — ${r.title} (${r.contentType})`);
+    console.log(`   • ${C.dim(r.rel)}, ${r.title} (${r.contentType})`);
   }
   console.log('');
 }
@@ -117,7 +117,7 @@ if (gateFail) {
   console.log(C.red(`  ✗ Public-ship gate FAILED: ${blocking.length} section(s) not reviewed.`));
   console.log('');
 } else if (blocking.length) {
-  console.log(C.dim('  Report only — pass --strict to block a public build on the above.'));
+  console.log(C.dim('  Report only, pass --strict to block a public build on the above.'));
   console.log('');
 } else if (!problems.length) {
   console.log(C.green('  ✓ All narrative/testimony sections reviewed.'));

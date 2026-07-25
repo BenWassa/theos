@@ -50,7 +50,7 @@ const blocking = sections.filter(
     <p class:list={['gate', blocking === 0 ? 'ok' : 'warn']}>
       {
         blocking === 0
-          ? 'Public-ship gate: PASSING — every narrative/testimony section is reviewed.'
+          ? 'Public-ship gate: PASSING, every narrative/testimony section is reviewed.'
           : `Public-ship gate: ${blocking} narrative/testimony section${blocking === 1 ? '' : 's'} not yet reviewed. Run "npm run check:sourcing -- --strict" to block a public build.`
       }
     </p>

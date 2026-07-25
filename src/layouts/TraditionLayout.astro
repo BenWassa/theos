@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import Backdrop from '../components/Backdrop.astro';
 import SoundToggle from '../components/SoundToggle.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import type { CollectionEntry } from 'astro:content';
@@ -39,10 +40,13 @@ const style = [
     {sections.length > 1 && <ReadingProgress sections={sections} />}
 
     <main id="main" class="content">
-      <slot />
+      <Backdrop pattern={meta.pattern} variant="ambient" />
+      <div class="chapters">
+        <slot />
+      </div>
     </main>
 
-    <footer class="end">— End of {meta.name} —</footer>
+    <footer class="end">End of {meta.name}</footer>
 
     {meta.ambientAudio && <SoundToggle src={meta.ambientAudio} label="Ambient" />}
   </div>
@@ -106,6 +110,15 @@ const style = [
     max-width: 72rem;
     margin: 0 auto;
     padding: 0 var(--pad) 5rem;
+  }
+  .content :global(.backdrop--ambient) {
+    inset: -12rem auto -12rem 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+  }
+  .chapters {
+    position: relative;
+    z-index: 1;
   }
   .end {
     text-align: center;

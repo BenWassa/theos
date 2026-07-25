@@ -123,7 +123,7 @@ const TRADITIONS = {
           alt: 'A man in silhouette praying on a rug',
           credit: 'Unsplash'
         },
-        content: "Before dawn, the adhan (call to prayer) sounds from an app on your phone. You rise while the house sleeps. You wash your hands, mouth, face, arms, and feet—wudu, the physical purification before approaching the Holy. You unroll your rug, orienting yourself precisely toward Mecca. As you stand, bow, and press your forehead to the floor, you join millions of others in the exact same posture of total surrender.",
+        content: "Before dawn, the adhan (call to prayer) sounds from an app on your phone. You rise while the house sleeps. You wash your hands, mouth, face, arms, and feet in wudu, the physical purification before approaching the Holy. You unroll your rug, orienting yourself precisely toward Mecca. As you stand, bow, and press your forehead to the floor, you join millions of others in the exact same posture of total surrender.",
         sources: [
           { id: 'src-11', text: 'Composite description of standard Fajr observation.' }
         ],
@@ -152,7 +152,7 @@ const TRADITIONS = {
         id: 'origins',
         title: 'Origins & Cosmology',
         contentType: 'editorial',
-        content: "Time is not a line; it is a wheel. The universe breathes in and out in vast cosmic cycles (yugas) of creation, preservation, and dissolution. Beneath the dizzying diversity of reality is Brahman—the singular, ultimate, formless reality. At the core of every individual is the Atman (soul), which is fundamentally identical to Brahman. The illusion (Maya) is that we are separate.",
+        content: "Time is not a line; it is a wheel. The universe breathes in and out in vast cosmic cycles (yugas) of creation, preservation, and dissolution. Beneath the dizzying diversity of reality is Brahman, the singular, ultimate, formless reality. At the core of every individual is the Atman (soul), which is fundamentally identical to Brahman. The illusion (Maya) is that we are separate.",
         sources: [
           { id: 'src-20', text: 'Synthesis of Advaita Vedanta philosophical framing.' }
         ],
@@ -336,7 +336,7 @@ const QuoteModule = ({ section, theme }) => {
             &ldquo;{section.content}&rdquo;
           </div>
           <footer className="mt-8 pl-8 md:pl-12">
-            <div className="font-sans font-semibold text-sm opacity-90">— {section.attribution}</div>
+            <div className="font-sans font-semibold text-sm opacity-90">{section.attribution}</div>
             <EditorialMeta section={section} theme={theme} />
           </footer>
         </blockquote>
@@ -437,7 +437,7 @@ const TraditionView = ({ tradition }) => {
       </div>
       
       <footer className="text-center pb-20 opacity-40 text-xs font-sans tracking-[0.3em] uppercase">
-        — End of {tradition.name} —
+        End of {tradition.name}
       </footer>
     </article>
   );

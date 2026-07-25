@@ -1,6 +1,6 @@
 ---
 // Reading rail: a thin left-edge progress line + one way-marker per section.
-// Orientation for the long single-scroll read — how far in you are, which
+// Orientation for the long single-scroll read, how far in you are, which
 // section you're in, and how many remain (so §7 Tensions is visibly ahead).
 //
 // Progressive enhancement: the rail is invisible and inert until JS marks it
@@ -219,7 +219,7 @@ const { sections } = Astro.props;
   }
 
   /* Below the reading gutter, drop the way-markers and keep only the thin
-     progress line hugging the edge — still a signal, no crowding. */
+     progress line hugging the edge, still a signal, no crowding. */
   @media (max-width: 60rem) {
     .rail {
       left: 0.55rem;

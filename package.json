@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
-  "description": "Project Theos — an immersive exploration of world religions.",
+  "description": "Project Theos, an immersive exploration of world religions.",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

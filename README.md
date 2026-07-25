@@ -4,10 +4,10 @@
 > enough to get a felt sense of what it is like from within.
 
 A static, content-first site built with [Astro](https://astro.build). No React,
-no database, no accounts — just Markdown + JSON compiled to plain HTML, hostable
+no database, no accounts, just Markdown + JSON compiled to plain HTML, hostable
 anywhere for free. Built to stay maintainable by one non-coding person.
 
-**Read [`DECISIONS.md`](DECISIONS.md) first** — it's the short list of the choices
+**Read [`DECISIONS.md`](DECISIONS.md) first**, it's the short list of the choices
 made and the ones that are yours. [`PLAN.md`](PLAN.md) has the full phased plan.
 
 ---
@@ -32,7 +32,7 @@ Requires Node 18+ (built and verified on Node 24).
 
 ```
 src/
-  content.config.ts          # THE schema — the enforced content contract (Zod)
+  content.config.ts          # THE schema, the enforced content contract (Zod)
   content/
     traditions/<slug>/        # seven Markdown sections per tradition
       01-origins.md … 07-tensions.md
@@ -53,7 +53,7 @@ public/                       # favicon, and assets/<slug>/ for real media later
 
 ## The content model
 
-Every tradition is **seven sections in a fixed order** — the uniform template is
+Every tradition is **seven sections in a fixed order**, the uniform template is
 what makes adding a tradition a content exercise, not a redesign:
 
 | # | Section | Module | Voice |
@@ -68,16 +68,16 @@ what makes adding a tradition a content exercise, not a redesign:
 
 Each section's Markdown frontmatter carries its `contentType`, `sources` (min 1),
 and `review_status`. The schema in `content.config.ts` validates all of it **at
-build time** — a malformed or sourceless section fails the build.
+build time**, a malformed or sourceless section fails the build.
 
 ## Editorial governance
 
 Content honesty is enforced, not hoped for:
 
-- **`/governance`** — a live dashboard of every section's sources and review status.
-- **`npm run check:sourcing`** — reports status; `--strict` blocks a public build
+- **`/governance`**: a live dashboard of every section's sources and review status.
+- **`npm run check:sourcing`**: reports status; `--strict` blocks a public build
   if any immersive/testimony section isn't `reviewed`.
-- No section currently reads `reviewed` — the shipped narratives are honest
+- No section currently reads `reviewed`, the shipped narratives are honest
   *illustrative syntheses* awaiting practitioner review. See `DECISIONS.md` §A.3.
 
 ## Add a tradition (the whole procedure)
@@ -89,7 +89,7 @@ Content honesty is enforced, not hoped for:
 4. (Optional) drop images/audio in `public/assets/<slug>/` and reference them.
 
 No component, layout, or config changes. If a new tradition *needs* a code change,
-the template is wrong — fix the template (PRD's Phase 4 gate).
+the template is wrong, fix the template (PRD's Phase 4 gate).
 
 ## Deploy
 

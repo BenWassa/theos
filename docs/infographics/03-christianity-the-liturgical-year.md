@@ -1,8 +1,8 @@
-# Infographic 03 — The Liturgical Year
+# Infographic 03: The Liturgical Year
 
 **Tradition:** Christianity · **Ember:** Amber (`#f59e0b`)
 **Sits within:** §4 Practice & Ritual
-**Orientation:** **Landscape 1200 × 900** (this is a cycle/timeline — the one
+**Orientation:** **Landscape 1200 × 900** (this is a cycle/timeline, the one
 Christianity piece that goes horizontal; see README §4)
 
 > Read [`README.md`](README.md) first for the shared house style.
@@ -11,8 +11,8 @@ Christianity piece that goes horizontal; see README §4)
 
 ## Purpose (one sentence)
 
-Show that Christian time is *shaped* — the year is walked, annually, through the
-whole story from waiting to release — so a reader grasps the cycle at a glance.
+Show that Christian time is *shaped*, the year is walked, annually, through the
+whole story from waiting to release, so a reader grasps the cycle at a glance.
 
 ## The idea to communicate
 
@@ -22,15 +22,15 @@ self-examination of Lent, the shock of Good Friday, the release of Easter… to
 rehearse dying and rising every single year."*
 
 Facts a reader should leave with:
-1. The year is a **repeating cycle**, not a line — it returns.
+1. The year is a **repeating cycle**, not a line, it returns.
 2. The seasons in order: **Advent → Christmas → (Ordinary Time) → Lent → Good
    Friday → Easter → Pentecost → Ordinary Time**.
-3. The emotional arc is **waiting → birth → fasting → death → resurrection** —
+3. The emotional arc is **waiting → birth → fasting → death → resurrection**,
    dying and rising, rehearsed yearly.
 
 ## The photo (the "window")
 
-- **Subject:** a single seasonal, material marker of the church year — an Advent
+- **Subject:** a single seasonal, material marker of the church year, an Advent
   candle/wreath, ash on a forehead (Lent), or Easter light. Choose **one**
   moment; do not try to photograph the whole cycle. The Advent wreath (candles
   in a ring) is ideal because it *is* itself a small circle of time.
@@ -40,7 +40,7 @@ Facts a reader should leave with:
 - Sourcing: "Christianity · The Liturgical Year" lens set in
   [`photo-picker.html`](photo-picker.html).
 
-## Composition — the cycle ring
+## Composition: the cycle ring
 
 ```
         Christmas
@@ -55,8 +55,8 @@ Pentecost   ( PHOTO )   Lent
   a small dot (accent), the season name (serif), and a one-word mood
   (`waiting`, `birth`, `fasting`, `death`, `release`).
 - Node **size or fill weight** encodes emotional intensity (Good Friday / Easter
-  are the heaviest) — but never colour *alone* (accessibility).
-- The photo sits inside the ring — literally at the centre of the year.
+  are the heaviest), but never colour *alone* (accessibility).
+- The photo sits inside the ring, literally at the centre of the year.
 - A subtle arrowhead on the ring makes the **return** explicit: it comes back to
   Advent.
 
@@ -75,9 +75,9 @@ single solid accent mark, not a watermark competing with the ring.
 
 ## Piece-specific don'ts
 
-- Don't render it as a straight left-to-right timeline — the theological point is
+- Don't render it as a straight left-to-right timeline, the theological point is
   that it *returns*. It must read as a loop.
-- Don't add month names or dates as a calendar grid — this is a felt cycle, not a
+- Don't add month names or dates as a calendar grid, this is a felt cycle, not a
   planner (no infobox/spec-sheet feel).
 
 ## Accessibility & alt text

@@ -11,7 +11,7 @@ const { data } = Astro.props;
       <slot />
     </div>
     <footer>
-      <cite>— {data.attribution}</cite>
+      <cite>{data.attribution}</cite>
     </footer>
   </blockquote>
   <SectionMeta data={data} />
@@ -19,7 +19,7 @@ const { data } = Astro.props;
 
 <style>
   .quote {
-    max-width: 44rem;
+    max-width: var(--measure);
     margin: 0 auto;
   }
   blockquote {

@@ -1,4 +1,4 @@
-# Infographic 07 — The Sensory Grammar of Worship
+# Infographic 07: The Sensory Grammar of Worship
 
 **Tradition:** Hinduism · **Ember:** Orange (`#fb923c`)
 **Sits within:** §6 Symbols & Sensory World
@@ -10,40 +10,40 @@
 
 ## Purpose (one sentence)
 
-Show Hinduism's turn toward **abundance** — a deliberate, joyful surplus of the
-senses — as the way the divine is met through the body's delight.
+Show Hinduism's turn toward **abundance**, a deliberate, joyful surplus of the
+senses, as the way the divine is met through the body's delight.
 
 ## The idea to communicate
 
-From the prose: *"Hinduism turns toward abundance — a deliberate, joyful surplus
+From the prose: *"Hinduism turns toward abundance, a deliberate, joyful surplus
 of the senses… Colour is theological here… Fire is constant… Sound layers bell
 and conch and chant… Scent means sandalwood and jasmine and camphor smoke."*
 
 A reader should leave with the **five senses engaged**, each with its concrete
 material:
-- **Sight** — colour (marigold orange, vermilion, Holi pigment); the *murti*.
-- **Fire/heat** — the *diya* flame, the *arti* lamps.
-- **Sound** — Om, bell, conch, chant.
-- **Scent** — sandalwood, jasmine, camphor smoke.
-- **(Taste/touch)** — *prasad* (blessed food), the warmth of the flame passed by hand.
+- **Sight**: colour (marigold orange, vermilion, Holi pigment); the *murti*.
+- **Fire/heat**: the *diya* flame, the *arti* lamps.
+- **Sound**: Om, bell, conch, chant.
+- **Scent**: sandalwood, jasmine, camphor smoke.
+- **(Taste/touch)**: *prasad* (blessed food), the warmth of the flame passed by hand.
 
-The single organising idea: **worship as fullness, not restraint** — contrast
+The single organising idea: **worship as fullness, not restraint**, contrast
 this deliberately with Islam's refusal (piece 05) and Christianity's single flame
 (piece 02). Same site, three temperaments.
 
 ## The photo (the "window")
 
-- **Subject:** the most abundant, colour-rich image of the nine — a **diya oil
+- **Subject:** the most abundant, colour-rich image of the nine, a **diya oil
   lamp** amid **marigold garlands**, a temple thali of offerings, colour and
   flame together. Warmth and saturation are *on-theme* here (unlike the other
   pieces, restraint is not the message).
-- **Placement:** top window, full-bleed, generous — let the colour spill.
-- **Treatment:** orange duotone but the **lightest touch** of the nine — preserve
+- **Placement:** top window, full-bleed, generous, let the colour spill.
+- **Treatment:** orange duotone but the **lightest touch** of the nine, preserve
   marigold and flame colour; deepen only the shadows to `bg #1a0803`. Grain ~4%.
 - Sourcing: "Hinduism · The Sensory Grammar" lens set in
   [`photo-picker.html`](photo-picker.html).
 
-## Composition — the five senses radiate
+## Composition: the five senses radiate
 
 ```
 ┌──────────────────────────────┐
@@ -64,10 +64,10 @@ this deliberately with Islam's refusal (piece 05) and Christianity's single flam
 └──────────────────────────────┘
 ```
 
-Five sense-rows are the data device — a legible list of the senses and the real
+Five sense-rows are the data device, a legible list of the senses and the real
 materials that engage each. Unlike the restrained pieces, this one may breathe
 warmth: the orange tonal ramp can appear in more places (markers, a soft glow
-behind the list) *while still being one ember* — abundance is the subject, so a
+behind the list) *while still being one ember*, abundance is the subject, so a
 richer use of the single accent is on-brief.
 
 ## Type
@@ -80,25 +80,25 @@ richer use of the single accent is on-brief.
 
 ## Iconography
 
-The **om** glyph as a warm low-opacity (≈13% — a touch higher than the restrained
+The **om** glyph as a warm low-opacity (≈13%, a touch higher than the restrained
 pieces) watermark bleeding off a corner. It doubles as sense/sound. One symbol.
 
 ## Piece-specific don'ts
 
-- Don't flatten the photo's colour into monochrome orange — abundance *is* the
+- Don't flatten the photo's colour into monochrome orange, abundance *is* the
   point; here, colour variety within the warm family is a feature.
-- Don't tip into "festival stock photo" cliché — one honest, close, material
+- Don't tip into "festival stock photo" cliché, one honest, close, material
   image (a single diya, real marigolds) beats a crowded parade shot.
-- Still one accent: warm oranges/reds from the ramp only — no added pink/gold/blue.
+- Still one accent: warm oranges/reds from the ramp only, no added pink/gold/blue.
 
 ## Accessibility & alt text
 
-Even amid abundance, text ≥4.5:1 — darken the region under the sense list. Ship:
+Even amid abundance, text ≥4.5:1, darken the region under the sense list. Ship:
 
 > Alt: "A warm photograph of a diya oil lamp among marigold garlands. A list
-> beside it maps Hindu worship onto the five senses — sight (colour and the
+> beside it maps Hindu worship onto the five senses, sight (colour and the
 > murti), fire (the diya flame), sound (Om, bell, conch), scent (sandalwood,
-> camphor) and taste (shared blessed food) — illustrating worship as a joyful
+> camphor) and taste (shared blessed food), illustrating worship as a joyful
 > abundance of the senses."
 
 Deliverables: per README §7.

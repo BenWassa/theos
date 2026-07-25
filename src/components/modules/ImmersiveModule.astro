@@ -2,18 +2,13 @@
 import type { CollectionEntry } from 'astro:content';
 import SectionMeta from '../SectionMeta.astro';
 import LensLabel from '../LensLabel.astro';
-import Backdrop from '../Backdrop.astro';
 type Props = {
   data: CollectionEntry<'traditions'>['data'];
-  pattern?: 'rays' | 'geometric' | 'bloom';
 };
-const { data, pattern } = Astro.props;
-// Aniconic sections never take figurative imagery; force the geometric character.
-const effectivePattern = data.aniconic ? 'geometric' : pattern;
+const { data } = Astro.props;
 ---
 
 <div class="immersive reveal">
-  <Backdrop pattern={effectivePattern} />
   <div class="panel">
     {data.lens && <LensLabel lens={data.lens} />}
     <div class="prose">
@@ -26,25 +21,12 @@ const effectivePattern = data.aniconic ? 'geometric' : pattern;
 <style>
   .immersive {
     position: relative;
-    /* Full-bleed horizontally; vertical rhythm is owned by the .section wrapper
-       and the header's gap, so no outer vertical margin here. */
-    margin-inline: calc(-1 * var(--pad));
-    padding: clamp(3.5rem, 11vh, 8rem) var(--pad);
-    overflow: hidden;
-    isolation: isolate;
+    padding-block: clamp(1.5rem, 4vh, 3rem);
   }
   .panel {
     position: relative;
-    z-index: 2;
-    max-width: 46rem;
+    max-width: var(--measure);
     margin: 0 auto;
-    background: color-mix(in srgb, #000 55%, transparent);
-    backdrop-filter: blur(10px) saturate(1.1);
-    -webkit-backdrop-filter: blur(10px) saturate(1.1);
-    border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
-    border-radius: 4px;
-    padding: clamp(1.75rem, 5vw, 3.5rem);
-    box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8);
   }
   .prose {
     font-family: var(--font-sans);

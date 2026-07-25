@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PROJECT THEOS — global design system
+   PROJECT THEOS, global design system
    --------------------------------------------------------------------------
    One shared visual grammar for every tradition. Per-tradition character comes
    entirely from CSS custom properties set by the layout (fed from meta.json),
@@ -53,7 +53,10 @@ button {
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif;
 
-  --measure: 34rem; /* comfortable reading width */
+  /* One generous desktop reading lane shared by every section voice. At the
+     largest editorial type size this remains roughly 70–75 characters wide,
+     while avoiding the narrow mobile-column effect on a desktop canvas. */
+  --measure: 52rem;
   --pad: clamp(1.25rem, 5vw, 3rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -110,8 +113,7 @@ body {
 }
 
 /* ---- generative backdrop ---------------------------------------------- */
-/* Colour only. Patterns were removed so the tradition symbol is the focus —
-   each tradition keeps its palette-driven gradient atmosphere, nothing more. */
+/* Scene backdrops are self-contained fields for the hero and index cards. */
 .backdrop {
   position: absolute;
   inset: 0;
@@ -120,6 +122,94 @@ body {
   background:
     radial-gradient(120% 90% at 50% -10%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%),
     linear-gradient(180deg, var(--gradient-from), var(--gradient-via) 45%, var(--gradient-to));
+}
+
+/* The reading canvas is one continuous, transparent atmosphere. Multiple
+   off-axis fields create recurring light without centring a spotlight on any
+   chapter, and the long mask dissolves only at the start and end of the journey. */
+.backdrop--ambient {
+  background:
+    radial-gradient(
+      72rem 54rem at 8% 9%,
+      color-mix(in srgb, var(--accent) 11%, transparent),
+      transparent 72%
+    ),
+    radial-gradient(
+      82rem 62rem at 94% 45%,
+      color-mix(in srgb, var(--surface) 34%, transparent),
+      transparent 74%
+    ),
+    radial-gradient(
+      70rem 56rem at 14% 82%,
+      color-mix(in srgb, var(--accent) 8%, transparent),
+      transparent 72%
+    );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 12rem,
+    black calc(100% - 12rem),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 12rem,
+    black calc(100% - 12rem),
+    transparent 100%
+  );
+}
+
+/* Pattern is a low-contrast environmental texture, not a discrete illustration.
+   Each treatment repeats at more than one point so it belongs to the page. */
+.backdrop--ambient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.backdrop--ambient[data-pattern="rays"]::before {
+  background:
+    repeating-conic-gradient(
+      from 208deg at 8% 12%,
+      color-mix(in srgb, var(--accent) 7%, transparent) 0deg 0.35deg,
+      transparent 0.35deg 11deg
+    ),
+    repeating-conic-gradient(
+      from 24deg at 92% 58%,
+      color-mix(in srgb, var(--accent) 4%, transparent) 0deg 0.3deg,
+      transparent 0.3deg 13deg
+    );
+}
+.backdrop--ambient[data-pattern="geometric"]::before {
+  background:
+    repeating-linear-gradient(
+      32deg,
+      transparent 0 9rem,
+      color-mix(in srgb, var(--accent) 4%, transparent) 9rem 9.08rem,
+      transparent 9.08rem 18rem
+    ),
+    repeating-linear-gradient(
+      148deg,
+      transparent 0 13rem,
+      color-mix(in srgb, var(--accent) 3%, transparent) 13rem 13.08rem,
+      transparent 13.08rem 26rem
+    );
+}
+.backdrop--ambient[data-pattern="bloom"]::before {
+  background:
+    radial-gradient(
+      circle at 12% 20%,
+      transparent 0 9rem,
+      color-mix(in srgb, var(--accent) 4%, transparent) 9.1rem 9.2rem,
+      transparent 9.3rem
+    ),
+    radial-gradient(
+      circle at 88% 68%,
+      transparent 0 14rem,
+      color-mix(in srgb, var(--accent) 3%, transparent) 14.1rem 14.2rem,
+      transparent 14.3rem
+    );
 }
 
 /* faint grain over everything to kill banding */

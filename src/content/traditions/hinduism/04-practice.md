@@ -22,9 +22,9 @@ sources:
 review_status: draft
 ---
 
-Because Hinduism assumes people are built differently, it offers not one practice but several roads up the same mountain — the classical **four yogas**.
+Because Hinduism assumes people are built differently, it offers not one practice but several roads up the same mountain, the classical **four yogas**.
 
-**Bhakti**, the path of devotion, is the most widely walked: love directed at a chosen form of God, expressed through worship, song, offering, and surrender. **Karma yoga** is the path of action — doing one's duty fully while releasing all attachment to the results, working as an offering rather than for a reward. **Jnana yoga** is the steep path of knowledge, the disciplined inquiry that tries to see through Maya to the identity of self and absolute. **Raja yoga** is the path of meditation and mental discipline, the systematic stilling of the mind.
+**Bhakti**, the path of devotion, is the most widely walked: love directed at a chosen form of God, expressed through worship, song, offering, and surrender. **Karma yoga** is the path of action, doing one's duty fully while releasing all attachment to the results, working as an offering rather than for a reward. **Jnana yoga** is the steep path of knowledge, the disciplined inquiry that tries to see through Maya to the identity of self and absolute. **Raja yoga** is the path of meditation and mental discipline, the systematic stilling of the mind.
 
 Around these run the sensory practices that most people actually live inside: **darshan**, the act of seeing and being seen by the deity, so that a temple visit is less about hearing a sermon than about a mutual gaze; the **festival cycle** that floods the year with colour, fasting, and feasting; pilgrimage to rivers and mountains thick with presence.
 

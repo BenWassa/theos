@@ -37,8 +37,8 @@
       "display": { "displayName": "Display", "purpose": "Hero tradition-name title only, one per page." },
       "headline": { "displayName": "Headline", "purpose": "Landing page 'Project Theos' title." },
       "title": { "displayName": "Title", "purpose": "Tradition names on index cards." },
-      "body-editorial": { "displayName": "Body — Editorial", "purpose": "Third-person factual sections: Origins, Beliefs, Practice, Symbols." },
-      "body-immersive": { "displayName": "Body — Immersive", "purpose": "Second-person narrative: A Day / A Life." },
+      "body-editorial": { "displayName": "Body, Editorial", "purpose": "Third-person factual sections: Origins, Beliefs, Practice, Symbols. Uses the shared 52rem desktop reading lane." },
+      "body-immersive": { "displayName": "Body, Immersive", "purpose": "Second-person narrative: A Day / A Life." },
       "quote": { "displayName": "Quote", "purpose": "First-person excerpts: Sacred Text, Tensions & Questions." },
       "label": { "displayName": "Label", "purpose": "Kickers, section labels, nav chrome, source-type tags. Always set in the tradition's accent color." }
     },
@@ -73,7 +73,7 @@
       "kind": "custom",
       "refersTo": "quote-blockquote",
       "description": "First-person excerpt styling for Sacred Text and Tensions & Questions sections: italic serif with a single accent-tinted left rule.",
-      "html": "<blockquote class=\"ds-quote\"><p class=\"ds-quote-prose\">Whoever finds their life will lose it, and whoever loses their life for my sake will find it.</p><footer><cite class=\"ds-quote-cite\">— Matthew 10:39</cite></footer></blockquote>",
+      "html": "<blockquote class=\"ds-quote\"><p class=\"ds-quote-prose\">Whoever finds their life will lose it, and whoever loses their life for my sake will find it.</p><footer><cite class=\"ds-quote-cite\">Matthew 10:39</cite></footer></blockquote>",
       "css": ".ds-quote { border-left: 3px solid color-mix(in srgb, var(--accent) 60%, transparent); padding-left: clamp(1.25rem, 4vw, 2.5rem); } .ds-quote-prose { font-family: var(--font-serif); font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.3rem); line-height: 1.4; font-style: italic; font-weight: 400; letter-spacing: -0.015em; margin-bottom: 1.2rem; } .ds-quote-cite { font-family: var(--font-sans); font-style: normal; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--muted); }"
     },
     {
@@ -111,39 +111,39 @@
   ],
   "narrative": {
     "northStar": "The Ember Room",
-    "overview": "Every tradition page is the same dark room with a different single coal glowing in it. The nine palette tokens in each meta.json (bg, surface, text, muted, accent, border, and the three gradient stops) are the entire mechanism by which Christianity, Islam, and Hinduism feel distinct — everything else (layout, components, motion, type) is one shared grammar. Christianity glows amber, Islam glows emerald, Hinduism glows orange-ember; the room itself — near-black, grain-textured, generatively lit from below — never changes shape. This is the direct visual expression of PRODUCT.md's 'one template, honestly adapted' principle: uniformity is the scaling mechanism, color is the only thing that's allowed to vary. The system explicitly rejects photography, 3D/WebGL spectacle, and decorative gradients-as-content — atmosphere is generated entirely from CSS (radial + linear gradients, SVG turbulence grain, a single symbol watermark), never from stock imagery, in keeping with PRODUCT.md's anti-reference list. It also rejects anything that reads as brochure-confident: sourcing and review status are surfaced in the same visual language as the content itself (SectionMeta, /governance), not hidden in an admin panel, because honesty about what isn't yet verified is part of the brand, not an implementation detail.",
+    "overview": "Every tradition page is the same dark room with a different single coal glowing in it. The nine palette tokens in each meta.json (bg, surface, text, muted, accent, border, and the three gradient stops) are the entire mechanism by which Christianity, Islam, and Hinduism feel distinct, everything else (layout, components, motion, type) is one shared grammar. Christianity glows amber, Islam glows emerald, Hinduism glows orange-ember; the room itself, near-black, grain-textured, generatively lit from below, never changes shape. This is the direct visual expression of PRODUCT.md's 'one template, honestly adapted' principle: uniformity is the scaling mechanism, color is the only thing that's allowed to vary. The system explicitly rejects photography, 3D/WebGL spectacle, and decorative gradients-as-content, atmosphere is generated entirely from CSS (radial + linear gradients, SVG turbulence grain, a single symbol watermark), never from stock imagery, in keeping with PRODUCT.md's anti-reference list. It also rejects anything that reads as brochure-confident: sourcing and review status are surfaced in the same visual language as the content itself (SectionMeta, /governance), not hidden in an admin panel, because honesty about what isn't yet verified is part of the brand, not an implementation detail.",
     "keyCharacteristics": [
-      "One component set, nine swappable CSS custom properties per tradition — no bespoke per-tradition CSS",
+      "One component set, nine swappable CSS custom properties per tradition, no bespoke per-tradition CSS",
       "Near-black, hue-tinted backgrounds (never true #000) with a single accent ember per tradition",
       "Serif for reading and reverence, sans for labels, chrome, and the second-person immersive voice",
       "Flat by default; glass/blur panels reserved for the two 'you are inside the room' moments",
-      "Motion is subtle, state-driven, and fully optional — every effect degrades cleanly under prefers-reduced-motion"
+      "Motion is subtle, state-driven, and fully optional, every effect degrades cleanly under prefers-reduced-motion"
     ],
     "rules": [
-      { "name": "The One Ember Rule", "body": "Each tradition gets exactly one accent color. It never gets a second highlight, a gradient duo, or a complementary pop color — the entire sense of 'this tradition feels different' rests on one hue doing all the work, at low-opacity/high-opacity contrast rather than on adding more colors.", "section": "colors" },
+      { "name": "The One Ember Rule", "body": "Each tradition gets exactly one accent color. It never gets a second highlight, a gradient duo, or a complementary pop color, the entire sense of 'this tradition feels different' rests on one hue doing all the work, at low-opacity/high-opacity contrast rather than on adding more colors.", "section": "colors" },
       { "name": "The Tinted-Neutral Rule", "body": "No background, surface, or border is ever plain gray or true black. Every neutral carries its tradition's hue even in shadow.", "section": "colors" },
-      { "name": "The Voice-Is-Typeface Rule", "body": "Third-person sections are always set in serif body; second-person narrative is always sans, lighter weight, larger scale. Never mix — the typeface change is how a reader unconsciously registers 'the voice just shifted.'", "section": "typography" },
-      { "name": "The Two-Glass Rule", "body": "backdrop-filter: blur() is reserved for exactly two UI moments — the Hero's disclaimer box and the ImmersiveModule narrative panel — plus the floating Sound Toggle. Everywhere else the system is flat.", "section": "elevation" }
+      { "name": "The Voice-Is-Typeface Rule", "body": "Third-person sections are always set in serif body; second-person narrative is always sans, lighter weight, larger scale. Never mix, the typeface change is how a reader unconsciously registers 'the voice just shifted.'", "section": "typography" },
+      { "name": "The Floating-Glass Rule", "body": "backdrop-filter: blur() is reserved for the Hero's disclaimer box and the floating Sound Toggle. Reading modules remain flat inside one continuous atmospheric canvas.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep every tradition on the exact same six components (Hero, TraditionCard, EditorialModule, ImmersiveModule, QuoteModule, SectionMeta) — a new tradition changes only the nine tokens in its meta.json → palette, never a component.",
+      "Do keep every tradition on the exact same six components (Hero, TraditionCard, EditorialModule, ImmersiveModule, QuoteModule, SectionMeta), a new tradition changes only the nine tokens in its meta.json → palette, never a component.",
       "Do tint every neutral toward its tradition's hue, even at near-black or near-white extremes. Never #000 or #fff, never plain gray.",
-      "Do keep the accent to one color per tradition, used sparingly (labels, links, glyph watermark, hover/focus) — its rarity is what makes it read as an ember rather than a color scheme.",
+      "Do keep the accent to one color per tradition, used sparingly (labels, links, glyph watermark, hover/focus), its rarity is what makes it read as an ember rather than a color scheme.",
       "Do match typeface to voice: serif for third/first-person reading, sans for second-person immersive narrative and all UI chrome/labels.",
       "Do give every motion effect (reveal, parallax, equalizer, scroll cue) a prefers-reduced-motion fallback that keeps content fully legible with zero animation.",
-      "Do keep the SectionMeta review-status indicator honest — the actual review_status value, unstyled toward 'more finished' than it is."
+      "Do keep the SectionMeta review-status indicator honest, the actual review_status value, unstyled toward 'more finished' than it is."
     ],
     "donts": [
-      "Don't add stock or licensed photography anywhere. Atmosphere is generated (gradients, grain, one symbol emblem) — never photographic.",
+      "Don't add stock or licensed photography anywhere. Atmosphere is generated (gradients, grain, one symbol emblem), never photographic.",
       "Don't add streaks, XP, progress bars, badges-as-achievement, or any gamified completion UI to a tradition page.",
-      "Don't add sign-up CTAs, 'join now' buttons, or any persuasive/conversion-styled component — no tradition is being sold.",
+      "Don't add sign-up CTAs, 'join now' buttons, or any persuasive/conversion-styled component, no tradition is being sold.",
       "Don't give a tradition page an encyclopedia/infobox layout (comparison tables, spec-sheet sidebars). The /governance data table is the one sanctioned exception.",
       "Don't add 3D/WebGL, canvas scenes, or any animation whose purpose is to impress rather than support reading.",
       "Don't use backdrop-filter blur decoratively outside the two sanctioned glass moments plus the floating Sound Toggle.",
-      "Don't add a second display typeface or a licensed web font — the system is system-stack-only by design.",
+      "Don't add a second display typeface or a licensed web font, the system is system-stack-only by design.",
       "Don't add new colored left-border 'stripe' accents. LensLabel and the QuoteModule blockquote are the system's only two, and they're load-bearing content markers, not a decorative pattern to extend.",
       "Don't use gradient text or background-clip: text treatments anywhere in the system.",
-      "Don't style Islam's emerald tradition accent as if it were the fixed 'reviewed' status color, or vice versa — the overlap in hue is coincidental, not semantic."
+      "Don't style Islam's emerald tradition accent as if it were the fixed 'reviewed' status color, or vice versa, the overlap in hue is coincidental, not semantic."
     ]
   }
 }

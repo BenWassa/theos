@@ -1,4 +1,4 @@
-# Infographic 02 — Light in Sacred Space
+# Infographic 02: Light in Sacred Space
 
 **Tradition:** Christianity · **Ember:** Amber (`#f59e0b`)
 **Sits within:** §6 Symbols & Sensory World
@@ -10,21 +10,21 @@
 
 ## Purpose (one sentence)
 
-Show how Christian sacred space is *engineered around light* — stained glass and
-candle flame — so that "the room itself preaches without saying anything."
+Show how Christian sacred space is *engineered around light*, stained glass and
+candle flame, so that "the room itself preaches without saying anything."
 
 ## The idea to communicate
 
 From the prose: cathedrals *"are engineered to catch it: stained glass shatters
 the sun into colour and lays it across stone floors."* And: *"a single flame in a
 dark side-chapel carries a weight out of all proportion to its size."* Two scales
-of the same element — **cathedral light** (public, vast, coloured) and **candle
+of the same element, **cathedral light** (public, vast, coloured) and **candle
 light** (private, small, personal).
 
 Facts a reader should leave with:
-1. Light is not decoration in a church — it is **architectural theology**.
+1. Light is not decoration in a church, it is **architectural theology**.
 2. **Stained glass** turns sunlight into colour cast across stone.
-3. A **single candle** is lit for the dead and the desperate — intimate, heavy.
+3. A **single candle** is lit for the dead and the desperate, intimate, heavy.
 
 ## The photo (the "window")
 
@@ -34,7 +34,7 @@ Facts a reader should leave with:
   the ember-room north star exactly.
 - **Placement:** the photo can go larger here (up to ¾ of the artboard) because
   light *is* the content. Full-bleed top.
-- **Treatment:** this photo needs the **least** duotone push — the ember room and
+- **Treatment:** this photo needs the **least** duotone push, the ember room and
   cathedral light already agree. Keep the warmth, deepen the shadows to `bg`,
   nudge highlights toward `#fbc86b`. Grain ~3%.
 - Sourcing: "Christianity · Light in Sacred Space" lens set in
@@ -60,8 +60,8 @@ Facts a reader should leave with:
 └──────────────────────────────┘
 ```
 
-The single data device is the **two scales of light** — public (cathedral) and
-private (candle) — set side by side as two small captioned markers, sharing one
+The single data device is the **two scales of light**, public (cathedral) and
+private (candle), set side by side as two small captioned markers, sharing one
 element at two magnitudes.
 
 ## Type
@@ -74,21 +74,21 @@ element at two magnitudes.
 
 ## Iconography
 
-Optional very-low-opacity cross watermark in a corner. Light is the hero here —
+Optional very-low-opacity cross watermark in a corner. Light is the hero here,
 don't compete with it. No second symbol.
 
 ## Piece-specific don'ts
 
-- Don't over-tint the photo into a flat orange wash — you'll kill the glass
+- Don't over-tint the photo into a flat orange wash, you'll kill the glass
   colour, which is the point. Preserve some hue variety *within* the amber family.
-- Don't add rays/lens-flare graphics — the real photo supplies the light.
+- Don't add rays/lens-flare graphics, the real photo supplies the light.
 
 ## Accessibility & alt text
 
 Text must sit on the darkened lower region, ≥4.5:1. Ship:
 
 > Alt: "Light falling through coloured glass (or a single lit candle) glowing in
-> the dark of a stone church. Labels contrast two scales of the same element —
+> the dark of a stone church. Labels contrast two scales of the same element,
 > the vast coloured light of a cathedral and the small, weighty flame of a single
 > candle."
 

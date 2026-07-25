@@ -26,7 +26,7 @@ const sections = await Promise.all(
   entries.map(async (e) => ({ data: e.data, ...(await render(e)) }))
 );
 
-// Way-markers for the reading rail — one per section, anchored to its id. The
+// Way-markers for the reading rail, one per section, anchored to its id. The
 // section key travels along so the rail can show the matching slot icon.
 const rail = sections.map((s) => ({
   id: `section-${s.data.section}`,
@@ -52,7 +52,7 @@ const total = sections.length;
           </EditorialModule>
         )}
         {data.contentType === 'immersive-paraphrase' && (
-          <ImmersiveModule data={data} pattern={meta.data.pattern}>
+          <ImmersiveModule data={data}>
             <Content />
           </ImmersiveModule>
         )}
