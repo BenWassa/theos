@@ -1,10 +1,11 @@
 ---
-// The consistent "chapter opening" every section shares: a hairline rule, the
-// slot's icon, its number in the sequence, and a real serif title. This is the
-// repeating grammar that orients the long single-scroll read, before this,
-// editorial/quote sections opened with only a small floating tag and the
-// immersive section had no title at all, so scrolling had no sense of "new
-// chapter". Rendered identically above all three module types.
+// The "chapter opening" every section shares, rendered identically above all
+// three module types. An illuminated chapter numeral — a nod to the manuscript
+// heritage of sacred books — is the single bold anchor; a hairline divides one
+// chapter from the last, and a small eyebrow (slot icon + place in the seven)
+// gives orientation without restating the numeral. Before this, editorial and
+// quote sections opened with only a floating tag and the immersive section had
+// no title at all, so the long single-scroll read had no sense of "new chapter".
 import type { CollectionEntry } from 'astro:content';
 import Symbol from './Symbol.astro';
 import { SECTION_ICONS, SECTION_MEASURE, type SectionKey } from '../data/sections';
@@ -18,22 +19,21 @@ const { data, total } = Astro.props;
 const key = data.section as SectionKey;
 const icon = SECTION_ICONS[key];
 const num = String(data.order).padStart(2, '0');
-const count = String(total).padStart(2, '0');
 const headingId = `heading-${data.section}`;
-const chapterProgress = total > 0 ? `${Math.min(data.order / total, 1) * 100}%` : '0%';
 ---
 
-<header
-  class="section-head reveal"
-  style={`--head-measure:${SECTION_MEASURE};--chapter-progress:${chapterProgress}`}
->
-  <div class="meta">
-    <span class="badge" aria-hidden="true">
-      <Symbol name={icon} class="badge-icon" />
-    </span>
-    <span class="count">{num}<span class="sep">/</span>{count}</span>
+<header class="section-head reveal" style={`--head-measure:${SECTION_MEASURE}`}>
+  <div class="opening">
+    <span class="numeral" aria-hidden="true">{num}</span>
+    <span class="rule" aria-hidden="true"></span>
+    <div class="stack">
+      <span class="eyebrow">
+        <Symbol name={icon} class="eyebrow-icon" />
+        Section {data.order} of {total}
+      </span>
+      <h2 id={headingId} class="display title">{data.title}</h2>
+    </div>
   </div>
-  <h2 id={headingId} class="display title">{data.title}</h2>
 </header>
 
 <style>
@@ -43,58 +43,66 @@ const chapterProgress = total > 0 ? `${Math.min(data.order / total, 1) * 100}%` 
     padding-top: clamp(1.4rem, 3vh, 2.2rem);
     border-top: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
   }
-  /* The ember advances one chapter at a time while the full hairline keeps the
-     remaining journey visible. It stays static so progress reads as orientation,
-     not an achievement mechanic. */
-  .section-head {
-    position: relative;
-  }
-  .section-head::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: 0;
-    width: var(--chapter-progress);
-    height: 2px;
-    background: var(--accent);
-  }
 
-  .meta {
+  .opening {
     display: flex;
     align-items: center;
-    gap: 0.9rem;
-    margin-bottom: clamp(1rem, 2.4vh, 1.5rem);
+    gap: clamp(1rem, 3vw, 1.6rem);
   }
-  .badge {
-    display: grid;
-    place-items: center;
-    width: 2.4rem;
-    height: 2.4rem;
+  /* The illuminated capital: the one place the ember is allowed to be loud. */
+  .numeral {
     flex: none;
-    border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
-    border-radius: 4px;
-    background: color-mix(in srgb, var(--accent) 7%, transparent);
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(3rem, 9vw, 4.5rem);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    font-variant-numeric: lining-nums tabular-nums;
   }
-  .badge :global(.badge-icon) {
-    width: 1.15rem;
-    height: 1.15rem;
+  .rule {
+    flex: none;
+    align-self: stretch;
+    width: 1px;
+    background: color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.6rem;
+    min-width: 0;
+  }
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .eyebrow :global(.eyebrow-icon) {
+    width: 0.95rem;
+    height: 0.95rem;
+    flex: none;
     color: var(--accent);
   }
-  .count {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    color: var(--muted);
-    font-variant-numeric: tabular-nums;
-  }
-  .sep {
-    margin: 0 0.35em;
-    opacity: 0.55;
+  .title {
+    font-size: clamp(1.85rem, 4.6vw, 2.5rem);
+    margin: 0;
+    text-wrap: balance;
   }
 
-  .title {
-    font-size: clamp(2rem, 5vw, 2.75rem);
-    margin: 0;
+  /* Tighten the numeral on narrow screens so the row never crowds the title. */
+  @media (max-width: 30rem) {
+    .numeral {
+      font-size: 2.6rem;
+    }
+    .opening {
+      gap: 0.9rem;
+    }
   }
 </style>
