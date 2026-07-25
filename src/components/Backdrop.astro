@@ -4,8 +4,13 @@
 // used by aniconic traditions.
 interface Props {
   pattern?: 'rays' | 'geometric' | 'bloom';
+  variant?: 'scene' | 'ambient';
 }
-const { pattern = 'rays' } = Astro.props;
+const { pattern = 'rays', variant = 'scene' } = Astro.props;
 ---
 
-<div class="backdrop" data-pattern={pattern} aria-hidden="true"></div>
+<div
+  class={`backdrop backdrop--${variant}`}
+  data-pattern={pattern}
+  aria-hidden="true"
+></div>
