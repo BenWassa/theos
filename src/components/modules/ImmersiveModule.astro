@@ -26,8 +26,10 @@ const effectivePattern = data.aniconic ? 'geometric' : pattern;
 <style>
   .immersive {
     position: relative;
-    margin: clamp(3rem, 8vh, 6rem) calc(-1 * var(--pad));
-    padding: clamp(5rem, 16vh, 11rem) var(--pad);
+    /* Full-bleed horizontally; vertical rhythm is owned by the .section wrapper
+       and the header's gap, so no outer vertical margin here. */
+    margin-inline: calc(-1 * var(--pad));
+    padding: clamp(3.5rem, 11vh, 8rem) var(--pad);
     overflow: hidden;
     isolation: isolate;
   }

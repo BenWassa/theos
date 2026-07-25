@@ -32,6 +32,16 @@ const WANT = [
   ['kaaba', 'faKaaba', 'Kaaba'],
   ['vihara', 'faVihara', 'Vihara'],
   ['atom', 'faAtom', 'Atom (secular)'],
+
+  // Section markers — one per fixed template slot (see src/data/sections.ts).
+  // Tradition-agnostic on purpose, so tradition #4+ inherits them for free.
+  ['seedling', 'faSeedling', 'Seedling (Origins & Cosmology)'],
+  ['heart', 'faHeart', 'Heart (Core Beliefs)'],
+  ['sun', 'faSun', 'Sun (A Day / A Life)'],
+  ['hands-praying', 'faHandsPraying', 'Praying hands (Practice & Ritual)'],
+  ['book-open', 'faBookOpen', 'Open book (Sacred Text & Voice)'],
+  ['shapes', 'faShapes', 'Shapes (Symbols & Sensory World)'],
+  ['scale-balanced', 'faScaleBalanced', 'Balanced scale (Tensions & Questions)'],
 ];
 
 const out = {};

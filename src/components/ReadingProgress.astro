@@ -6,8 +6,10 @@
 // Progressive enhancement: the rail is invisible and inert until JS marks it
 // active, so no-JS readers lose nothing. Colour comes entirely from the
 // tradition palette tokens set on the enclosing `.tradition` wrapper.
+import Symbol from './Symbol.astro';
+import { SECTION_ICONS, type SectionKey } from '../data/sections';
 interface Props {
-  sections: { id: string; title: string }[];
+  sections: { id: string; title: string; section: string }[];
 }
 const { sections } = Astro.props;
 ---
@@ -25,7 +27,10 @@ const { sections } = Astro.props;
             aria-label={`Section ${i + 1} of ${sections.length}: ${s.title}`}
           >
             <span class="dot" aria-hidden="true" />
-            <span class="tip" aria-hidden="true">{s.title}</span>
+            <span class="tip" aria-hidden="true">
+              <Symbol name={SECTION_ICONS[s.section as SectionKey]} class="tip-icon" />
+              {s.title}
+            </span>
           </a>
         </li>
       ))
@@ -181,6 +186,9 @@ const { sections } = Astro.props;
     position: absolute;
     left: calc(100% + 0.7rem);
     top: 50%;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
     white-space: nowrap;
     font-family: var(--font-sans);
     font-size: 0.7rem;
@@ -197,6 +205,12 @@ const { sections } = Astro.props;
     transform: translate(-4px, -50%);
     pointer-events: none;
     transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+  .tip :global(.tip-icon) {
+    width: 0.85rem;
+    height: 0.85rem;
+    flex: none;
+    color: var(--accent);
   }
   .mark:hover .tip,
   .mark:focus-visible .tip {

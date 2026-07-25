@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
 import TraditionLayout from '../layouts/TraditionLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import EditorialModule from '../components/modules/EditorialModule.astro';
 import ImmersiveModule from '../components/modules/ImmersiveModule.astro';
 import QuoteModule from '../components/modules/QuoteModule.astro';
@@ -25,17 +26,26 @@ const sections = await Promise.all(
   entries.map(async (e) => ({ data: e.data, ...(await render(e)) }))
 );
 
-// Way-markers for the reading rail — one per section, anchored to its id.
+// Way-markers for the reading rail — one per section, anchored to its id. The
+// section key travels along so the rail can show the matching slot icon.
 const rail = sections.map((s) => ({
   id: `section-${s.data.section}`,
   title: s.data.title,
+  section: s.data.section,
 }));
+
+const total = sections.length;
 ---
 
 <TraditionLayout meta={meta.data} slug={slug} sections={rail}>
   {
     sections.map(({ data, Content }) => (
-      <section id={`section-${data.section}`} aria-label={data.title}>
+      <section
+        class="section"
+        id={`section-${data.section}`}
+        aria-labelledby={`heading-${data.section}`}
+      >
+        <SectionHeader data={data} total={total} />
         {data.contentType === 'editorial' && (
           <EditorialModule data={data}>
             <Content />
@@ -55,3 +65,11 @@ const rail = sections.map((s) => ({
     ))
   }
 </TraditionLayout>
+
+<style>
+  /* The section owns the inter-chapter rhythm now; each module contributes only
+     its own inner spacing. Keeps the cadence even across all three module types. */
+  .section {
+    padding-block: clamp(2.5rem, 7vh, 5rem);
+  }
+</style>

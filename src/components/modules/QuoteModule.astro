@@ -6,7 +6,6 @@ const { data } = Astro.props;
 ---
 
 <div class="quote reveal">
-  <span class="label">{data.title}</span>
   <blockquote>
     <div class="prose">
       <slot />
@@ -22,11 +21,6 @@ const { data } = Astro.props;
   .quote {
     max-width: 44rem;
     margin: 0 auto;
-    padding: clamp(4rem, 12vh, 9rem) 0;
-  }
-  .label {
-    display: block;
-    margin-bottom: 1.8rem;
   }
   blockquote {
     border-left: 3px solid color-mix(in srgb, var(--accent) 60%, transparent);
